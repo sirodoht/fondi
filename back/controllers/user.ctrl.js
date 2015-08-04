@@ -12,5 +12,5 @@ userCtrl.default = function(req, res, next) {
     user: user,
     userImg: gravatarImgUrl,
   });
-  next();
+  // next();
 };
