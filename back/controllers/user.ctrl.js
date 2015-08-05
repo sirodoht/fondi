@@ -1,17 +1,32 @@
 var gravatar = require('gravatar');
 
+var models = require('../models');
+
 module.exports = userCtrl = {};
 
-userCtrl.default = function(req, res, next) {
-  var user = req.params.user;
+userCtrl.default = function (req, res, next) {
+  var userParam = req.params.user;
 
-  var userEmail = user + '@gmail.com';
-  var gravatarImgUrl = gravatar.url(userEmail, {s: '100', r: 'x', d: 'retro'}, false);
+  console.log('user::', userParam);
 
-  res.render('user', {
-    user: user,
-    userImg: gravatarImgUrl,
+  models.User.findOne({
+    where: {
+      username: userParam,
+    }
+  }).then(function (user) {
+    var userEmail = userParam + '@gmail.com';
+    if (user !== null) {
+      userEmail = user.dataValues.email;
+    }
+    console.log('user.email::', user);
+    var gravatarImgUrl = gravatar.url(userEmail, {s: '100', r: 'x', d: 'retro'}, false);
+
+    res.render('user', {
+      user: userEmail,
+      userImg: gravatarImgUrl,
+    });
   });
+
   // next();
 };
 
