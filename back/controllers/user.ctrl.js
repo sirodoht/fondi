@@ -14,3 +14,7 @@ userCtrl.default = function(req, res, next) {
   });
   // next();
 };
+
+userCtrl.getRegister = function (req, res, next) {
+  res.render('register');
+};
