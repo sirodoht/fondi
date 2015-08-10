@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^0.8.4",
     "body-parser": "~1.13.2",
     "bootstrap-sass": "^3.3.5",
     "browserify": "^11.0.0",
