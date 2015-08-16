@@ -44,7 +44,7 @@ userCtrl.register = function (req, res, next) {
     email: req.body.email,
     password: req.body.password,
   }).then(function() {
-    res.redirect('/' + req.username);
+    res.redirect('/' + req.body.username);
   });
 
   // now instantiate an object
