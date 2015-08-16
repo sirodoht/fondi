@@ -52,4 +52,7 @@ userCtrl.getLogin = function (req, res, next) {
   res.render('login');
 };
 
+userCtrl.login = function (req, res, next) {
+  console.log(req.body.username);
+  res.redirect('/' + req.body.username);
 };
