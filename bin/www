@@ -30,8 +30,12 @@ var server = http.createServer(app);
 // server.on('error', onError);
 // server.on('listening', onListening);
 
+models.sequelize.sync(/*{force: true}*/).then(function () {
+  // return User.create({
+  //   firstName: 'John',
+  //   lastName: 'Hancock'
+  // });
 
-models.sequelize.sync().then(function () {
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
