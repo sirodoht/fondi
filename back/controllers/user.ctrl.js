@@ -22,8 +22,10 @@ userCtrl.default = function (req, res, next) {
     var gravatarImgUrl = gravatar.url(userEmail, {s: '100', r: 'x', d: 'retro'}, false);
 
     res.render('user', {
-      user: userEmail,
-      userImg: gravatarImgUrl,
+      email: userEmail,
+      img: gravatarImgUrl,
+      name: user.name,
+      username: user.username,
     });
   });
 
