@@ -6,8 +6,8 @@ var Sequelize = require('sequelize');
 // var env = process.env.NODE_ENV || 'development';
 // var config = require(__dirname + '/../config/config.json')[env];
 var sequelize = new Sequelize('sirodoht', 'sirodoht', '', {
-  dialect: 'postgres', // or 'sqlite', mysql', 'mariadb'
-  port: 5432, // or 5432 (for postgres)
+  dialect: 'postgres',
+  port: 5432,
 });
 
 var db = module.exports = {};
