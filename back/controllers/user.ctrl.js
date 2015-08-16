@@ -46,6 +46,11 @@ userCtrl.register = function (req, res, next) {
   }).then(function() {
     res.redirect('/' + req.body.username);
   });
+};
+
+userCtrl.getLogin = function (req, res, next) {
+  res.render('login');
+};
 
   // now instantiate an object
   // var task = Task.build({title: 'very important task'})
