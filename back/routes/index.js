@@ -11,6 +11,10 @@ router.get('/', homeCtrl.default);
 router.get('/join', userCtrl.getRegister);
 router.post('/register', userCtrl.register);
 
+/* User login */
+router.get('/login', userCtrl.getLogin);
+router.post('/login', userCtrl.login);
+
 /* GET user page. */
 router.get('/:user', userCtrl.default);
 
