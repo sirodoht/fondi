@@ -1,1 +1,1 @@
-web: npm run styles && npm start
+web: npm start
