@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/.bin/nodemon ./bin/www",
-    "styles" "./node_modules/.bin/gulp"
+    "styles": "./node_modules/.bin/gulp"
   },
   "dependencies": {
     "bcrypt": "^0.8.4",
