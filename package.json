@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/nodemon ./bin/www",
+    "start": "node ./bin/www",
     "styles": "./node_modules/.bin/gulp"
   },
   "engines": {
