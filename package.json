@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "styles": "gulp",
-    "postinstall": "ls && ./node_modules/.bin/gulp default",
+    "postinstall": "ls node_modules && node_modules/.bin/gulp default",
     "deploy": "node ./bin/www"
   },
   "engines": {
