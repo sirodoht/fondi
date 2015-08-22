@@ -7,7 +7,7 @@
     "styles": "./node_modules/.bin/gulp"
   },
   "engines": {
-     "node": "0.12.x"
+    "node": "0.12.x"
   },
   "dependencies": {
     "bcrypt": "^0.8.4",
