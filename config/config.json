@@ -15,10 +15,11 @@
     "dialect": "portgres"
   },
   "production": {
-    "username": "rqggcwldqiuhsl",
-    "password": "QS4PCswga0i0nj9ythSXDmizqy",
-    "database": "dd0pbruujt14gj",
-    "host": "ec2-54-217-202-109.eu-west-1.compute.amazonaws.com",
-    "dialect": "postgres"
+    "username": "root",
+    "password": "G7xFCz3Ppa0rUn0T",
+    "database": "db",
+    "host": "172.17.42.1",
+    "dialect": "postgres",
+    "port": "32769"
   }
 }
