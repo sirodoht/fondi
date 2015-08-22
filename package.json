@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "styles": "gulp",
-    "postinstall": "bower install && gulp default",
-    "deploy": "node ./bin/www"
+    "styles": "gulp sass",
+    "postinstall": "bower install",
+    "deploy": "gulp sass && node ./bin/www"
   },
   "engines": {
     "node": "0.12.x"
