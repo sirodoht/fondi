@@ -12,6 +12,7 @@
     "node": "0.12.x"
   },
   "dependencies": {
+    "bcrypt": "^0.8.4",
     "bluebird": "^2.9.34",
     "body-parser": "~1.13.2",
     "bootstrap-sass": "^3.3.5",
