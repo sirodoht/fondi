@@ -16,7 +16,7 @@
   },
   "production": {
     "username": "root",
-    "password": "G7xFCz3Ppa0rUn0T",
+    "password": "jhGgFTQcpsRyijLx",
     "database": "db",
     "host": "172.17.42.1",
     "dialect": "postgres",
