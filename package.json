@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "pwd && ./node_modules/.bin/nodemon ./bin/www",
     "styles": "./node_modules/.bin/gulp"
+    "start": "nodemon ./bin/www",
   },
   "engines": {
     "node": "0.12.x"
