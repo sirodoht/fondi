@@ -20,6 +20,6 @@
     "database": "db",
     "host": "172.17.42.1",
     "dialect": "postgres",
-    "port": "32769"
+    "port": "32771"
   }
 }
