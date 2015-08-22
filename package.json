@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "styles": "gulp"
+    "styles": "gulp",
+    "deploy": "node ./bin/www"
   },
   "engines": {
     "node": "0.12.x"
