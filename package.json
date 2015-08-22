@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "styles": "gulp",
-    "deploy": "gulp && node ./bin/www"
+    "deploy": "./node_modules/.bin/gulp && node ./bin/www"
   },
   "engines": {
     "node": "0.12.x"
