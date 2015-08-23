@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var homeCtrl = require('../controllers/home.ctrl');
+var indexCtrl = require('../controllers/index.ctrl');
 var userCtrl = require('../controllers/user.ctrl');
 
 /* GET home page. */
-router.get('/', homeCtrl.default);
+router.get('/', indexCtrl.default);
 
 /* User register */
 router.get('/join', userCtrl.getRegister);
