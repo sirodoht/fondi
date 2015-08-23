@@ -14,19 +14,22 @@ html
               span.icon-bar
               span.icon-bar
             a.navbar-brand(href='/') Fondi
-          #navbar.navbar-collapse.collapse
+          .navbar-collapse.collapse
+            form.navbar-form.navbar-left(role='search')
+              .form-group
+                input.form-control(type='text', placeholder='Search')
             ul.nav.navbar-nav
-              li.active
-                a(href='#') Home
               li
-                a(href='#') About
-              li
-                a(href='#') Contact
+                a(href='#explore') Explore
             ul.nav.navbar-nav.navbar-right
-              li.active
-                a(href='#') Create
+              //- li
+                a(href='#create') Create
               li
-                a(href='#') Courses
+                button.btn.btn-primary.navbar-btn(type='button') Create
               li
-                a(href='#') Profile
+                a(href='#profile') Profile
+              li
+                a(href='/join') Sign up
+              li
+                a(href='/login') Sign in
     block content
