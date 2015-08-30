@@ -13,6 +13,7 @@ gulp.task('styles:watch', function () {
   gulp.watch('./front/styles/**/*.scss', ['styles']);
 });
 
-gulp.task('default', function() {
-  // place code for your default task here
+gulp.task('default', function () {
+  console.log('# Gulp tasks');
+  console.log('gulp styles :: Compiles Sass styles');
 });
