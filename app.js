@@ -66,6 +66,25 @@ passport.use(new LocalStrategy({
     });
   }
 ));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.username);
+});
+
+passport.deserializeUser(function(username, done) {
+  models.User.findOne({
+    where: {
+      username: username
+    }
+  }).then(function (user) {
+    done(null, user);
+  });
+
+  // User.findById(id, function(err, user) {
+  //   done(err, user);
+  // });
+});
+
 app.use(express.static(path.join(__dirname, 'front/static')));
 
 app.use('/', routes);
