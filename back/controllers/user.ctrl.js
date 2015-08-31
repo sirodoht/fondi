@@ -7,19 +7,22 @@ module.exports = userCtrl = {};
 userCtrl.default = function (req, res, next) {
   var userParam = req.params.user;
 
-  console.log('user::', userParam);
-
+  // retrieve user from db model
   models.User.findOne({
     where: {
       username: userParam,
     }
   }).then(function (user) {
-    var userEmail = userParam + '@gmail.com';
+    // populate variables to sent to user view
+
+    var userEmail = '';
     if (user !== null) {
       userEmail = user.dataValues.email;
     }
-    console.log('user.email::', user);
-    var gravatarImgUrl = gravatar.url(userEmail, {s: '100', r: 'x', d: 'retro'}, false);
+
+    var gravatarImgUrl = gravatar.url(userEmail, {s: '260', r: 'x', d: 'retro'}, false);
+
+    var fullName = user.getFullname();
 
     res.render('user', {
       email: userEmail,
@@ -37,7 +40,6 @@ userCtrl.getRegister = function (req, res, next) {
 };
 
 userCtrl.register = function (req, res, next) {
-  console.log(req.body);
   models.User.create({
     username: req.body.username,
     name: req.body.name,
