@@ -5,9 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./back/routes/index');
 var db = require('./back/models/index');
+var models = require('./back/models');
 
 var app = express();
 
@@ -28,6 +31,41 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    // session: false,
+  }, function(username, password, done) {
+    models.User.findOne({
+      where: {
+        username: username
+      }
+    }).then(function (user) {
+      console.log('did this run 1');
+      // if (err) {
+      //   console.log('error 1', err);
+      //   return done(err);
+      // }
+      if (!user) {
+        console.log('error 2, username');
+        return done(null, false, {
+          message: 'Incorrect username.'
+        });
+      }
+      if (!user.validPassword(password)) {
+        console.log('error 3, password');
+        return done(null, false, {
+          message: 'Incorrect password.'
+        });
+      }
+      return done(null, user);
+    });
+  }
+));
 app.use(express.static(path.join(__dirname, 'front/static')));
 
 app.use('/', routes);
