@@ -15,14 +15,11 @@ module.exports = function(sequelize, DataTypes) {
 
   var options = {};
   options.instanceMethods = {
-    validPassword: function () {
-      // bcrypt.compare(pwd, this.password, function (err, isMatch) {
-    	// 	if (err)
-    	// 		return cb(err);
-      //
-    	// 	cb(null, isMatch);
-    	// });
-      return true;
+    validPassword: function (pwd) {
+      return bcrypt.compareAsync(pwd, this.password).then(function (isMatch) {
+        console.log('isMatch', isMatch);
+        return isMatch;
+    	});
     },
     getFullname: function() {
       return [this.name, this.username].join(' ');
