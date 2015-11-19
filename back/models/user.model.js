@@ -30,12 +30,12 @@ module.exports = function(sequelize, DataTypes) {
 
   var hashPasswordHook = function(user, options) {
     return bcrypt.genSaltAsync(SALT_WORK_FACTOR)
-      .then(function (salt) {
-        return bcrypt.hashAsync(user.password, salt).then(function (hash) {
+      .then(function(salt) {
+        return bcrypt.hashAsync(user.password, salt).then(function(hash) {
           user.password = hash;
         });
       })
-      .catch(function (err) {
+      .catch(function(err) {
         console.log('Password hook error:', err);
       });
   };

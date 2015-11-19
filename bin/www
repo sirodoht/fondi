@@ -30,7 +30,7 @@ var server = http.createServer(app);
 // server.on('error', onError);
 // server.on('listening', onListening);
 
-models.sequelize.sync(/*{force: true}*/).then(function () {
+models.sequelize.sync(/*{force: true}*/).then(function() {
   // return User.create({
   //   firstName: 'John',
   //   lastName: 'Hancock'

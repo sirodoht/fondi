@@ -5,7 +5,7 @@ var models = require('../models');
 
 module.exports = userCtrl = {};
 
-userCtrl.default = function (req, res, next) {
+userCtrl.default = function(req, res, next) {
   var userParam = req.params.user;
 
   // retrieve user from db model
@@ -13,7 +13,7 @@ userCtrl.default = function (req, res, next) {
     where: {
       username: userParam,
     }
-  }).then(function (user) {
+  }).then(function(user) {
     // populate variables to sent to user view
 
     var userEmail = '';
@@ -23,7 +23,7 @@ userCtrl.default = function (req, res, next) {
 
     var gravatarImgUrl = gravatar.url(userEmail, {s: '260', r: 'x', d: 'retro'}, false);
 
-    var fullName = user.getFullname();
+    // var fullName = user.getFullname();
 
     res.render('user', {
       email: userEmail,
@@ -36,11 +36,11 @@ userCtrl.default = function (req, res, next) {
   // next();
 };
 
-userCtrl.getRegister = function (req, res, next) {
+userCtrl.getRegister = function(req, res, next) {
   res.render('register');
 };
 
-userCtrl.register = function (req, res, next) {
+userCtrl.register = function(req, res, next) {
   models.User.create({
     username: req.body.username,
     name: req.body.name,
@@ -51,11 +51,11 @@ userCtrl.register = function (req, res, next) {
   });
 };
 
-userCtrl.getLogin = function (req, res, next) {
+userCtrl.getLogin = function(req, res, next) {
   res.render('login');
 };
 
-userCtrl.login = function (req, res, next) {
+userCtrl.login = function(req, res, next) {
   var userParam = req.body.username;
 
   console.log('user: ', req.body.username);

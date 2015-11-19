@@ -44,7 +44,7 @@ passport.use(new LocalStrategy({
       where: {
         username: username
       }
-    }).then(function (user) {
+    }).then(function(user) {
       console.log('did this run 1');
       // if (err) {
       //   console.log('error 1', err);
@@ -76,7 +76,7 @@ passport.deserializeUser(function(username, done) {
     where: {
       username: username
     }
-  }).then(function (user) {
+  }).then(function(user) {
     done(null, user);
   });
 
