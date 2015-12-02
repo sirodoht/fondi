@@ -1,4 +1,5 @@
 var Promise = require('bluebird');
+var Sequelize = require('sequelize');
 var bcrypt = require('bcrypt');
 
 Promise.promisifyAll(require('bcrypt'));
@@ -7,17 +8,52 @@ var SALT_WORK_FACTOR = 10;
 
 module.exports = function(sequelize, DataTypes) {
   var attributes = {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+
     username: DataTypes.STRING,
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
     password: DataTypes.STRING,
+    name: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true,
+      },
+    },
+
+    createdOn: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW,
+    },
+    lastLogin: Sequelize.DATE,
+    lastIp: {
+      type: Sequelize.STRING,
+      validate: {
+        isIP: true,
+      },
+    },
+
+    website: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true,
+      },
+    },
+    location: DataTypes.STRING,
   };
 
   var options = {};
+  options.classMethods = {
+    associate: function(models) {
+      User.hasMany(models.Course);
+    }
+  };
   options.instanceMethods = {
-    validPassword: function (pwd) {
-      return bcrypt.compareAsync(pwd, this.password).then(function (isMatch) {
-        console.log('isMatch', isMatch);
+    validPassword: function(pwd) {
+      return bcrypt.compareAsync(pwd, this.password).then(function(isMatch) {
         return isMatch;
     	});
     },
