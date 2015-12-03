@@ -5,14 +5,14 @@ var indexCtrl = require('../controllers/index.ctrl');
 var userCtrl = require('../controllers/user.ctrl');
 var coursesCtrl = require('../controllers/courses.ctrl');
 
-/* GET home page. */
+// Home page
 router.get('/', indexCtrl.default);
 
-/* User register */
+// User register
 router.get('/join', userCtrl.getRegister);
 router.post('/register', userCtrl.register);
 
-/* User login */
+// User login
 router.get('/login', userCtrl.getLogin);
 router.post('/login', userCtrl.login);
 
