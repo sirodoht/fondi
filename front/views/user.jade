@@ -3,9 +3,10 @@ extends layout
 block content
   .container
     .row
-      .col-md-8
+      .col-md-3
+        img(src="#{img}")
         h1 #{name}
         h2 #{username}
         h3 #{email}
-        p
-          img(src="#{img}")
+      .col-md-9
+        h3 Courses I curate
