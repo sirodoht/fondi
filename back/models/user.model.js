@@ -51,14 +51,11 @@ module.exports = function(sequelize, DataTypes) {
         return isMatch;
     	});
     },
-    getFullname: function() {
-      return [this.name, this.username].join(' ');
-    }
   };
 
   var User = sequelize.define('User', attributes, options);
 
-  var hashPasswordHook = function(user, options) {
+  var hashPasswordHook = function(user) {
     return bcrypt.genSaltAsync(SALT_WORK_FACTOR)
       .then(function(salt) {
         return bcrypt.hashAsync(user.password, salt).then(function(hash) {
