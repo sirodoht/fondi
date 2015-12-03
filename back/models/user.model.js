@@ -8,12 +8,6 @@ var SALT_WORK_FACTOR = 10;
 
 module.exports = function(sequelize, DataTypes) {
   var attributes = {
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     name: DataTypes.STRING,
