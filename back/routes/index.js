@@ -3,6 +3,7 @@ var router = express.Router();
 
 var indexCtrl = require('../controllers/index.ctrl');
 var userCtrl = require('../controllers/user.ctrl');
+var coursesCtrl = require('../controllers/courses.ctrl');
 
 /* GET home page. */
 router.get('/', indexCtrl.default);
@@ -15,7 +16,16 @@ router.post('/register', userCtrl.register);
 router.get('/login', userCtrl.getLogin);
 router.post('/login', userCtrl.login);
 
-/* GET user page. */
+router.get('/courses', coursesCtrl.list);
+router.get('/courses/new', coursesCtrl.getCreate);
+router.post('/courses', coursesCtrl.create);
+
+// User page
 router.get('/:user', userCtrl.default);
+
+// User courses
+// router.get('/:user/courses/create', coursesCtrl.create);
+
+router.get('/following', userCtrl.default);
 
 module.exports = router;
