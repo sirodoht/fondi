@@ -1,4 +1,3 @@
-var fs = require('fs');
 var path = require('path');
 
 var Sequelize = require('sequelize');
@@ -7,22 +6,22 @@ var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../../config/config.json')[env];
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-var db = module.exports = {};
+var user = sequelize.import(path.join(__dirname, 'user.model.js'));
+var course = sequelize.import(path.join(__dirname, 'course.model.js'));
+var courseSection = sequelize.import(path.join(__dirname, 'course-section.model.js'));
 
-fs.readdirSync(__dirname)
-  .filter(function(file) {
-    return (file.indexOf('.') !== 0) && (file !== 'index.js');
-  })
-  .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file));
-    db[model.name] = model;
-  });
+var db = {
+  User: user,
+  Course: course,
+  CourseSection: courseSection,
+  sequelize: sequelize,
+  Sequelize: Sequelize,
+};
 
-Object.keys(db).forEach(function(modelName) {
-  if ('associate' in db[modelName]) {
-    db[modelName].associate(db);
-  }
-});
+db.Course.belongsToMany(db.User, {through: 'UserCourse'});
+db.User.belongsToMany(db.Course, {through: 'UserCourse'});
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.Course.hasMany(db.CourseSection);
+db.CourseSection.belongsTo(db.Course);
+
+module.exports = db;
