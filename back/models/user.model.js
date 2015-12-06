@@ -18,10 +18,6 @@ module.exports = function(sequelize, DataTypes) {
       },
     },
 
-    createdOn: {
-      type: Sequelize.DATE,
-      defaultValue: Sequelize.NOW,
-    },
     lastLogin: Sequelize.DATE,
     lastIp: {
       type: Sequelize.STRING,
