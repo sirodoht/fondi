@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon ./back/app.js",
     "styles": "gulp sass",
     "postinstall": "bower install",
-    "deploy": "gulp sass && node ./bin/www"
+    "deploy": "gulp sass && node ./back/app.js"
   },
   "engines": {
     "node": "4.x",
