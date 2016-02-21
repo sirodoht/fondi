@@ -58,7 +58,7 @@ module.exports = function (sequelize, DataTypes) {
           });
       })
       .catch(function (err) {
-        console.log('Password hook error:', err);
+        console.error('Password hook error:', err);
       });
   };
 
