@@ -20,3 +20,12 @@ coursesCtrl.create = function (req, res) {
       res.redirect('/courses');
     });
 };
+
+coursesCtrl.getEdit = function (req, res) {
+  models.Course.findOne({id: req.params.id})
+    .then(function (course) {
+      res.render('courses/edit', {
+        name: course.name,
+      });
+    });
+};
