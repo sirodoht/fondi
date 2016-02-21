@@ -42,10 +42,8 @@ module.exports = function (sequelize, DataTypes) {
     },
   };
   options.instanceMethods = {
-    validPassword: function(pwd) {
-      return bcrypt.compareAsync(pwd, this.password).then(function(isMatch) {
-        return isMatch;
-    	});
+    validPassword: function (pwd) {
+      return bcrypt.compareAsync(pwd, this.password);
     },
   };
 
