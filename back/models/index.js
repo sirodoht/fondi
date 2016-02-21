@@ -24,4 +24,6 @@ db.User.belongsToMany(db.Course, {through: 'UserCourse'});
 db.Course.hasMany(db.CourseSection);
 db.CourseSection.belongsTo(db.Course);
 
+sequelize.sync();
+
 module.exports = db;
