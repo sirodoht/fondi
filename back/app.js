@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -11,7 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var helpers = require('./util/helpers');
 var listeners = require('./util/listeners');
-var db = require('./models/index');
+// var db = require('./models/index');
 var models = require('./models');
 
 var app = express();
@@ -78,15 +78,11 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (username, done) {
   models.User.findOne({
     where: {
-      username: username
-    }
+      username: username,
+    },
   }).then(function (user) {
     done(null, user);
   });
-
-  // User.findById(id, function (err, user) {
-  //   done(err, user);
-  // });
 });
 
 app.use(express.static(path.join(__dirname, '../front/static')));
@@ -103,21 +99,21 @@ app.use(function (req, res, next) {
 
 // development error handler, will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function (err, req, res, next) {
+  app.use(function (err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }
 
 // production error handler, no stacktraces leaked to user
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: {},
   });
 });
 
@@ -129,7 +125,7 @@ models.sequelize.sync()
     app.listen(port);
     app.on('error', listeners.onError);
     app.on('listening', listeners.onListening);
-    console.log('Server running on port ' + port);
+    console.log('Server running on http://localhost:' + port + '/');
   });
 
 module.exports = app;
