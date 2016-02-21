@@ -6,7 +6,7 @@ Promise.promisifyAll(require('bcrypt'));
 
 var SALT_WORK_FACTOR = 10;
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var attributes = {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
@@ -37,9 +37,9 @@ module.exports = function(sequelize, DataTypes) {
 
   var options = {};
   options.classMethods = {
-    associate: function(models) {
+    associate: function (models) {
       User.hasMany(models.Course);
-    }
+    },
   };
   options.instanceMethods = {
     validPassword: function(pwd) {
@@ -51,14 +51,15 @@ module.exports = function(sequelize, DataTypes) {
 
   var User = sequelize.define('User', attributes, options);
 
-  var hashPasswordHook = function(user) {
+  var hashPasswordHook = function (user) {
     return bcrypt.genSaltAsync(SALT_WORK_FACTOR)
-      .then(function(salt) {
-        return bcrypt.hashAsync(user.password, salt).then(function(hash) {
-          user.password = hash;
-        });
+      .then(function (salt) {
+        return bcrypt.hashAsync(user.password, salt)
+          .then(function (hash) {
+            user.password = hash;
+          });
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log('Password hook error:', err);
       });
   };
