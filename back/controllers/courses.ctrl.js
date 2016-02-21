@@ -38,3 +38,9 @@ coursesCtrl.getEdit = function (req, res) {
       });
     });
 };
+
+coursesCtrl.edit = function (req, res) {
+  console.log('req.body', req.body);
+  // models.
+  res.redirect('/courses');
+};
