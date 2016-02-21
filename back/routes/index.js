@@ -20,7 +20,7 @@ router.get('/join', userCtrl.getRegister);
 router.get('/login', userCtrl.getLogin);
 
 router.get('/courses/new', coursesCtrl.getCreate);
-router.get('/courses/new/github', coursesCtrl.getCreateGithub);
+router.get('/courses/:courseId/edit', coursesCtrl.getEdit);
 
 router.get('/:user', userCtrl.getUser);
 // router.get('/:user/courses', coursesCtrl.create);
