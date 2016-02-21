@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./back/app.js",
+    "test": "eslint ./back/**/*.js",
     "styles": "gulp sass",
     "postinstall": "bower install",
     "deploy": "gulp sass && node ./back/app.js"
