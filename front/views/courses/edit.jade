@@ -5,6 +5,7 @@ block content
     .row
       .col-md-8.col-md-offset-2
         h1.text-center Edit course #{ name }
+        p.lead.text-center Course description: #{ desc }
         hr
         table.table.table-hover
           thead
@@ -29,3 +30,18 @@ block content
               td Larry
               td the Bird
               td @twitter
+        hr
+          
+        form.form-horizontal(action="/courses/#{ id }", method="POST")
+          fieldset
+            .form-group
+              label.col-md-4.control-label(for="title") Title
+              .col-md-4
+                input.form-control.input-md(name="title", required, type="text")
+            .form-group
+              label.col-md-4.control-label(for="content") Content
+              .col-md-4
+                input.form-control.input-md(name="content", required, type="text")
+            .form-group
+              .col-md-4.col-md-offset-4
+                button.btn.btn-primary Create new section
