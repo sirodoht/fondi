@@ -1,6 +1,4 @@
-// var Sequelize = require('sequelize');
-
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var attributes = {
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
