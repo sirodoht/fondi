@@ -1,9 +1,7 @@
-module.exports = indexCtrl = {};
+var indexCtrl = module.exports = {};
 
-indexCtrl.default = function(req, res, next) {
-
+indexCtrl.getIndex = function (req, res) {
   res.render('index', {
-    title: 'Fondi'
+    title: 'Fondi',
   });
-  // next();
 };
