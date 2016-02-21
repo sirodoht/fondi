@@ -14,10 +14,17 @@ coursesCtrl.getCreate = function (req, res) {
 };
 
 coursesCtrl.create = function (req, res) {
-  models.Course.create(req.body)
+  var courseDetails = {
+    name: req.body.name,
+    description: req.body.desc,
+  };
+  models.Course.create(courseDetails)
     .then(function (course) {
-      console.log('course', course);
-      res.redirect('/courses');
+      models.User.findOne({id: req.user.id})
+        .then(function (user) {
+          user.addCourse(course);
+          res.redirect('/courses');
+        });
     });
 };
 
@@ -25,7 +32,9 @@ coursesCtrl.getEdit = function (req, res) {
   models.Course.findOne({id: req.params.id})
     .then(function (course) {
       res.render('courses/edit', {
+        id: course.id,
         name: course.name,
+        desc: course.description,
       });
     });
 };
