@@ -7,9 +7,6 @@ var userCtrl = require('../controllers/user.ctrl');
 var coursesCtrl = require('../controllers/courses.ctrl');
 
 /* API routes */
-router.post('/register', userCtrl.register);
-router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
-
 router.get('/courses', coursesCtrl.list);
 router.post('/courses', coursesCtrl.create);
 
@@ -17,14 +14,13 @@ router.post('/courses', coursesCtrl.create);
 router.get('/', indexCtrl.getIndex);
 
 router.get('/join', userCtrl.getRegister);
+router.post('/register', userCtrl.register);
 router.get('/login', userCtrl.getLogin);
+router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 
 router.get('/courses/new', coursesCtrl.getCreate);
 router.get('/courses/:courseId/edit', coursesCtrl.getEdit);
 
 router.get('/:user', userCtrl.getUser);
-// router.get('/:user/courses', coursesCtrl.create);
-
-router.get('/following', userCtrl.getUser);
 
 module.exports = router;
