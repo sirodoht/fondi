@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 
 block content
   .container
@@ -7,15 +7,15 @@ block content
         form.form-horizontal(action="/courses", method="POST")
           fieldset
             legend
-              h1 Create new course
+              h1.text-center Create new course
             .form-group
               label.col-md-4.control-label(for="name") Course name
               .col-md-4
-                input#name.form-control.input-md(name='name', required, type="text")
+                input.form-control.input-md(name="name", required, type="text")
             .form-group
               label.col-md-4.control-label(for="desc") Course byline
               .col-md-4
-                input#desc.form-control.input-md(name="desc", required, type="text")
+                input.form-control.input-md(name="desc", required, type="text")
             .form-group
               .col-md-4.col-md-offset-4
-                button#create.btn.btn-primary Create
+                button.btn.btn-block.btn-primary Create
