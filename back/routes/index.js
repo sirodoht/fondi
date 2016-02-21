@@ -9,6 +9,7 @@ var coursesCtrl = require('../controllers/courses.ctrl');
 /* API routes */
 router.get('/courses', coursesCtrl.list);
 router.post('/courses', coursesCtrl.create);
+router.post('/courses/:courseId', coursesCtrl.edit);
 
 /* Frontend routes */
 router.get('/', indexCtrl.getIndex);
