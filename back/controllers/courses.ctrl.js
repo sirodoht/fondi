@@ -10,7 +10,7 @@ coursesCtrl.list = function (req, res) {
 };
 
 coursesCtrl.getCreate = function (req, res) {
-  res.render('courses/course-create');
+  res.render('courses/create');
 };
 
 coursesCtrl.create = function (req, res) {
