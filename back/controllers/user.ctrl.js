@@ -54,32 +54,3 @@ userCtrl.register = function(req, res, next) {
 userCtrl.getLogin = function(req, res, next) {
   res.render('login');
 };
-
-userCtrl.login = function(req, res, next) {
-  var userParam = req.body.username;
-
-  console.log('user: ', req.body.username);
-
-  passport.authenticate('local', function(err, user, info) {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return res.redirect('/login');
-    }
-    req.logIn(user, function(err) {
-      if (err) {
-        return next(err);
-      }
-      return res.redirect('/' + user.username);
-    });
-  })(req, res, next);
-
-  // models.User.findOne({
-  //   where: {
-  //     username:
-  //   }
-  // });
-
-  // res.redirect('/' + req.body.username);
-};
