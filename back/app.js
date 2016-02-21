@@ -45,36 +45,31 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password',
-    // session: false,
-  }, function (username, password, done) {
-    models.User.findOne({
-      where: {
-        username: username
-      }
-    }).then(function (user) {
-      console.log('did this run 1');
-      // if (err) {
-      //   console.log('error 1', err);
-      //   return done(err);
-      // }
-      if (!user) {
-        console.log('error 2, username');
-        return done(null, false, {
-          message: 'Incorrect username.'
-        });
-      }
-      if (!user.validPassword(password)) {
-        console.log('error 3, password');
-        return done(null, false, {
-          message: 'Incorrect password.'
-        });
-      }
-      return done(null, user);
-    });
-  }
-));
+  usernameField: 'username',
+  passwordField: 'password',
+}, function (username, password, done) {
+  models.User.findOne({
+    where: {
+      username: username,
+    },
+  }).then(function (user) {
+    if (!user) {
+      return done(null, false, {
+        message: 'Incorrect username.',
+      });
+    }
+    return user.validPassword(password)
+      .then(function (isMatch) {
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, {
+            message: 'Incorrect password.',
+          });
+        }
+      });
+  });
+}));
 
 passport.serializeUser(function (user, done) {
   done(null, user.username);
