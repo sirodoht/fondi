@@ -20,16 +20,17 @@ coursesCtrl.create = function (req, res) {
   };
   models.Course.create(courseDetails)
     .then(function (course) {
-      models.User.findOne({id: req.user.id})
+      models.User.findOne({where: {id: req.user.id}})
         .then(function (user) {
           user.addCourse(course);
-          res.redirect('/courses');
+          res.redirect('/courses/' + course.id + '/edit');
         });
     });
 };
 
 coursesCtrl.getEdit = function (req, res) {
-  models.Course.findOne({id: req.params.id})
+  console.log('getEdit() :: req.params.courseId', req.params.courseId);
+  models.Course.findOne({where: {id: req.params.courseId}})
     .then(function (course) {
       res.render('courses/edit', {
         id: course.id,
