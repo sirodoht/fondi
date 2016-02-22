@@ -29,14 +29,17 @@ coursesCtrl.create = function (req, res) {
 };
 
 coursesCtrl.getEdit = function (req, res) {
-  console.log('getEdit() :: req.params.courseId', req.params.courseId);
   models.Course.findOne({where: {id: req.params.courseId}})
     .then(function (course) {
-      res.render('courses/edit', {
-        id: course.id,
-        name: course.name,
-        desc: course.description,
-      });
+      course.getCourseSections({raw: true})
+        .then(function (courseSections) {
+          res.render('courses/edit', {
+            id: course.id,
+            name: course.name,
+            desc: course.description,
+            courseSections: courseSections,
+          });
+        });
     });
 };
 
@@ -45,7 +48,6 @@ coursesCtrl.edit = function (req, res) {
     .then(function (courseSection) {
       models.Course.findOne({where: {id: req.params.courseId}})
         .then(function (course) {
-          console.log('course', course);
           course.addCourseSection(courseSection);
         });
     });
