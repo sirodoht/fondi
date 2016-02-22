@@ -41,7 +41,13 @@ coursesCtrl.getEdit = function (req, res) {
 };
 
 coursesCtrl.edit = function (req, res) {
-  console.log('req.body', req.body);
-  // models.
+  models.CourseSection.create(req.body)
+    .then(function (courseSection) {
+      models.Course.findOne({where: {id: req.params.courseId}})
+        .then(function (course) {
+          console.log('course', course);
+          course.addCourseSection(courseSection);
+        });
+    });
   res.redirect('/courses');
 };
