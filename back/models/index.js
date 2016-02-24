@@ -8,12 +8,12 @@ var sequelize = new Sequelize(config.database, config.username, config.password,
 
 var user = sequelize.import(path.join(__dirname, 'user.model.js'));
 var course = sequelize.import(path.join(__dirname, 'course.model.js'));
-var courseSection = sequelize.import(path.join(__dirname, 'course-section.model.js'));
+var section = sequelize.import(path.join(__dirname, 'section.model.js'));
 
 var db = {
   User: user,
   Course: course,
-  CourseSection: courseSection,
+  Section: section,
   sequelize: sequelize,
   Sequelize: Sequelize,
 };
@@ -21,8 +21,8 @@ var db = {
 db.Course.belongsToMany(db.User, {through: 'UserCourse'});
 db.User.belongsToMany(db.Course, {through: 'UserCourse'});
 
-db.Course.hasMany(db.CourseSection);
-db.CourseSection.belongsTo(db.Course);
+db.Course.hasMany(db.Section);
+db.Section.belongsTo(db.Course);
 
 sequelize.sync();
 

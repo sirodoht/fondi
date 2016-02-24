@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     content: DataTypes.TEXT,
   };
 
-  var CourseSection = sequelize.define('CourseSection', attributes);
+  var Section = sequelize.define('Section', attributes);
 
-  return CourseSection;
+  return Section;
 };

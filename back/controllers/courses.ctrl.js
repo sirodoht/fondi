@@ -29,10 +29,9 @@ coursesCtrl.create = function (req, res) {
 };
 
 coursesCtrl.getCourse = function (req, res) {
-  console.log('req.user', req.user);
   models.Course.findOne({where: {id: req.params.courseId}})
     .then(function (course) {
-      course.getCourseSections({raw: true})
+      course.getSections({raw: true})
         .then(function (sections) {
           res.render('courses/single', {
             username: req.user.username,
@@ -46,7 +45,7 @@ coursesCtrl.getCourse = function (req, res) {
 };
 
 coursesCtrl.getSection = function (req, res) {
-  models.CourseSection.findOne({
+  models.Section.findOne({
     where: {
       id: req.params.sectionId,
     },
@@ -61,12 +60,14 @@ coursesCtrl.getSection = function (req, res) {
 };
 
 coursesCtrl.edit = function (req, res) {
-  models.CourseSection.create(req.body)
-    .then(function (courseSection) {
+  console.log('req.params.courseId', req.params.courseId);
+  models.Section.create(req.body)
+    .then(function (section) {
       models.Course.findOne({where: {id: req.params.courseId}})
         .then(function (course) {
-          course.addCourseSection(courseSection);
-          res.redirect(req.get('referer'));
+          course.addSection(section);
+          // res.redirect(req.get('referer'));
+          res.redirect('/' + req.user.username + '/' + req.params.courseId);
         });
     });
 };
