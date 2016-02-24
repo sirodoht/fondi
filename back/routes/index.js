@@ -19,8 +19,9 @@ router.post('/register', userCtrl.register);
 router.get('/login', userCtrl.getLogin);
 router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 
-router.get('/courses/new', coursesCtrl.getCreate);
-router.get('/courses/:courseId/edit', coursesCtrl.getEdit);
+router.get('/new', coursesCtrl.getCreate);
+router.get('/:username/:courseId', coursesCtrl.getCourse);
+router.get('/:username/:courseId/:sectionId', coursesCtrl.getSection);
 
 router.get('/:username', userCtrl.getUser);
 
