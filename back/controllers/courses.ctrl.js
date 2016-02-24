@@ -28,16 +28,18 @@ coursesCtrl.create = function (req, res) {
     });
 };
 
-coursesCtrl.getEdit = function (req, res) {
+coursesCtrl.getCourse = function (req, res) {
+  console.log('req.user', req.user);
   models.Course.findOne({where: {id: req.params.courseId}})
     .then(function (course) {
       course.getCourseSections({raw: true})
-        .then(function (courseSections) {
-          res.render('courses/edit', {
-            id: course.id,
+        .then(function (sections) {
+          res.render('courses/single', {
+            username: req.user.username,
+            courseId: course.id,
             name: course.name,
             desc: course.description,
-            courseSections: courseSections,
+            sections: sections,
           });
         });
     });
@@ -64,7 +66,7 @@ coursesCtrl.edit = function (req, res) {
       models.Course.findOne({where: {id: req.params.courseId}})
         .then(function (course) {
           course.addCourseSection(courseSection);
+          res.redirect(req.get('referer'));
         });
     });
-  res.redirect('/courses');
 };
