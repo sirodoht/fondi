@@ -4,8 +4,8 @@ block content
   .container
     .row
       .col-md-8.col-md-offset-2
-        h1.text-center Edit course #{ name }
-        p.lead.text-center Course description: #{ desc }
+        h1.text-center #{name}
+        p.lead.text-center Description: #{desc}
         hr
         table.table.table-hover
           thead
@@ -13,13 +13,14 @@ block content
               th Title
               th Content
           tbody
-          each value in courseSections
+          each value in sections
             tr
-              td #{ value.title }
-              td #{ value.content }
+              td
+                a(href="/#{username}/#{courseId}/#{value.id}") #{value.title}
+              td #{value.content}
         hr
           
-        form.form-horizontal(action="/courses/#{ id }", method="POST")
+        form.form-horizontal(action="/courses/#{id}", method="POST")
           fieldset
             .form-group
               label.col-md-4.control-label(for="title") Title
