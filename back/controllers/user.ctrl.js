@@ -3,7 +3,7 @@ var models = require('../models');
 var userCtrl = module.exports = {};
 
 userCtrl.getUser = function (req, res) {
-  var userParam = req.params.user;
+  var userParam = req.params.username;
 
   models.User.findOne({
     where: {

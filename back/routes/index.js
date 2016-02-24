@@ -22,6 +22,6 @@ router.post('/login', passport.authenticate('local', { successRedirect: '/', fai
 router.get('/courses/new', coursesCtrl.getCreate);
 router.get('/courses/:courseId/edit', coursesCtrl.getEdit);
 
-router.get('/:user', userCtrl.getUser);
+router.get('/:username', userCtrl.getUser);
 
 module.exports = router;
