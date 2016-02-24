@@ -23,7 +23,7 @@ coursesCtrl.create = function (req, res) {
       models.User.findOne({where: {id: req.user.id}})
         .then(function (user) {
           user.addCourse(course);
-          res.redirect('/courses/' + course.id + '/edit');
+          res.redirect('/courses/' + course.id);
         });
     });
 };
