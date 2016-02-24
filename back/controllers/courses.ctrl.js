@@ -43,6 +43,21 @@ coursesCtrl.getEdit = function (req, res) {
     });
 };
 
+coursesCtrl.getSection = function (req, res) {
+  models.CourseSection.findOne({
+    where: {
+      id: req.params.sectionId,
+    },
+    raw: true,
+  })
+    .then(function (section) {
+      res.render('courses/section', {
+        title: section.title,
+        content: section.content,
+      });
+    });
+};
+
 coursesCtrl.edit = function (req, res) {
   models.CourseSection.create(req.body)
     .then(function (courseSection) {
