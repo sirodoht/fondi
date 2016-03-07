@@ -5,9 +5,7 @@
   "scripts": {
     "start": "nodemon ./back/app.js",
     "test": "eslint ./back/**/*.js",
-    "styles": "gulp sass",
     "postinstall": "bower install",
-    "deploy": "gulp sass && node ./back/app.js"
   },
   "engines": {
     "node": "4.x",
@@ -17,7 +15,6 @@
     "bcrypt": "0.8.5",
     "bluebird": "3.3.1",
     "body-parser": "1.15.0",
-    "bootstrap-sass": "3.3.6",
     "bower": "1.7.7",
     "browserify": "13.0.0",
     "cookie-parser": "1.4.1",
@@ -26,9 +23,6 @@
     "express-session": "1.13.0",
     "github": "0.2.4",
     "gravatar": "1.4.0",
-    "gulp": "3.9.1",
-    "gulp-concat": "2.6.0",
-    "gulp-sass": "2.2.0",
     "jade": "1.11.0",
     "morgan": "1.7.0",
     "passport": "0.3.2",
