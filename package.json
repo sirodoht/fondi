@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./back/app.js",
-    "test": "eslint ./back/**/*.js",
+    "test": "eslint ./back/**/*.js; eslint ./front/scripts/app.js",
     "postinstall": "bower install",
+    "deploy": "npm run sass && node ./back/app.js",
+    "sass": "node-sass --include-path scss front/styles/boot.scss front/static/css/style.css",
+    "sass-watch": "nodemon -e scss -x \"npm run sass\""
   },
   "engines": {
     "node": "4.x",
