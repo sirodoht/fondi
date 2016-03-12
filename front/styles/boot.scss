@@ -1,6 +1,10 @@
 @import "../static/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "bootstrap-overrides";
 
+// Variables
+$text-color: rgba(0, 0, 0, 0.8);
+
+// General sections
 .section-header {
   background-color: #f6f6f6;
 }
@@ -20,6 +24,14 @@
   padding-bottom: 20px;
 }
 
+.share-wrapper {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+// Course summary aka cards (on /:username)
 .course-summary {
   border: 1px solid #eee;
   border-radius: 5px;
@@ -54,4 +66,24 @@
 .course-summary-body-title {
   margin-top: 0;
   font-size: 22px;
+}
+
+// Course single view (on /:username/:courseId)
+.course-single-section {
+  h3 {
+    margin-top: 0;
+    color: $text-color;
+  }
+
+  p {
+    color: $text-color;
+    padding-left: 12px;
+    // border-left: 6px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 0;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
