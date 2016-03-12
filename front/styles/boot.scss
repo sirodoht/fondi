@@ -1,1 +1,55 @@
 @import "../static/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "bootstrap-overrides";
+
+.section-header {
+  background-color: #f6f6f6;
+}
+
+.section-header-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+.section-body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.course-summary {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 20px;
+  display: flex;
+}
+
+.course-summary-icon {
+  font-size: 86px;
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.1s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+a.course-summary-icon {
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.course-summary-body-title {
+  margin-top: 0;
+  font-size: 22px;
+}
