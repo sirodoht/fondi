@@ -5,30 +5,30 @@ html
     link(rel="stylesheet", href="/css/style.css")
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
   body
-    .container
-      nav.navbar.navbar-default
-        .container-fluid
-          .navbar-header
-            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='/') Fondi
-          .navbar-collapse.collapse
-            form.navbar-form.navbar-left(role='search')
-              .form-group
-                input.form-control(type='text', placeholder='Search')
-            //- ul.nav.navbar-nav
-              li
-                a(href='#explore') Explore
-            ul.nav.navbar-nav.navbar-right
-              li
-                a(href='/new') Create
-              li
-                a(href='/courses') Profile
-              li
-                a(href='/join') Sign up
-              li
-                a(href='/login') Sign in
+    nav.navbar.navbar-default
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Fondi
+        .navbar-collapse.collapse
+          //- form.navbar-form.navbar-left(role='search')
+            .form-group
+              input.form-control(type='text', placeholder='Search')
+          //- ul.nav.navbar-nav
+            li
+              a(href='#explore') Explore
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/new') Create course
+            li
+              a(href='/courses') My courses
+            li
+              a(href='/join') Sign up
+            li
+              a(href='/login') Sign in
     block content
+    
