@@ -77,6 +77,13 @@ coursesCtrl.getSection = function (req, res) {
     });
 };
 
+coursesCtrl.getNewSection = function (req, res) {
+  res.render('courses/section', {
+    title: '',
+    content: '',
+  });
+};
+
 coursesCtrl.edit = function (req, res) {
   console.log('req.params.courseId', req.params.courseId);
   models.Section.create(req.body)
