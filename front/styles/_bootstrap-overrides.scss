@@ -1,3 +1,16 @@
 .navbar {
   margin-bottom: 0;
 }
+
+// Theme classes. They override other bootstrap classes.
+.theme-table {
+  border-radius: 5px;
+  border-collapse: inherit;
+  border: 1px solid #ddd;
+
+  thead > tr > th {
+    background: #eee;
+    border-bottom: none;
+  }
+
+}
