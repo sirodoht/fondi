@@ -101,7 +101,6 @@ coursesCtrl.getNewSection = function (req, res) {
 };
 
 coursesCtrl.edit = function (req, res) {
-  console.log('req.params.courseId', req.params.courseId);
   models.Section.create(req.body)
     .then(function (section) {
       models.Course.findOne({where: {id: req.params.courseId}})
