@@ -37,6 +37,22 @@ coursesCtrl.getCourse = function (req, res) {
             username: req.user.username,
             courseId: course.id,
             name: course.name,
+            description: course.description,
+            sections: sections,
+          });
+        });
+    });
+};
+
+coursesCtrl.getEditCourse = function (req, res) {
+  models.Course.findOne({where: {id: req.params.courseId}})
+    .then(function (course) {
+      course.getSections({raw: true})
+        .then(function (sections) {
+          res.render('courses/edit', {
+            username: req.user.username,
+            courseId: course.id,
+            name: course.name,
             desc: course.description,
             sections: sections,
           });
