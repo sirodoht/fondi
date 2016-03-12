@@ -44,6 +44,24 @@ coursesCtrl.getCourse = function (req, res) {
     });
 };
 
+coursesCtrl.getOwnCourses = function (req, res) {
+  models.User.findOne({
+    where: {
+      // id: req.user.id,
+      id: 1,
+    },
+  })
+    .then(function (user) {
+      user.getCourses({raw: true})
+        .then(function (courses) {
+          res.render('user-courses', {
+            username: user.username,
+            courses: courses,
+          });
+        })
+    });
+};
+
 coursesCtrl.getSection = function (req, res) {
   models.Section.findOne({
     where: {
