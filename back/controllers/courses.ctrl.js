@@ -71,7 +71,7 @@ coursesCtrl.getSection = function (req, res) {
   })
     .then(function (section) {
       res.render('courses/section', {
-        title: section.title,
+        name: section.name,
         content: section.content,
       });
     });
