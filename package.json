@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "eslint ./back/**/*.js; eslint ./front/scripts/app.js",
     "start": "nodemon ./back/app.js & webpack --progress --watch & npm run sass-watch ",
+    "test": "",
     "postinstall": "bower install",
     "deploy": "npm run sass && node ./back/app.js",
     "sass": "node-sass --include-path scss front/styles/boot.scss front/static/css/style.css",
