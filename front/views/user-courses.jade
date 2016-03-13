@@ -6,9 +6,13 @@ block content
       .row.vertical-align
         .col-md-9
           .section-header-title
-            h2 #{username} - Courses
+            h2 Courses by #{username}
         .col-md-3
-          a(href="/new").btn.btn-block.btn-primary New course
+          .row
+            .col-md-6.col-md-offset-5
+              a(href="/#{username}/#{courseId}/edit").btn.btn-block.btn-primary
+                i.fa.fa-file-o
+                | &nbsp;Create
   .section-body
     .container
       .row
