@@ -1,12 +1,16 @@
 .navbar {
   margin-bottom: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-radius: 0;
 
   &-default {
+    border: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+
     .badge {
       background-color: #fff;
       color: $navbar-default-bg;
-      border-color: $navbar-default-bg;
     }
   }
 
@@ -15,6 +19,26 @@
       background-color: #fff;
       color: $navbar-inverse-bg;
     }
+  }
+
+  .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+  }
+
+  .nav li:not(:first-child) {
+    border-left: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  .navbar-nav > li > a {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:focus {
+    background-color: $navbar-default-bg;
   }
 }
 
@@ -37,14 +61,13 @@
 }
 
 .btn-primary {
-  background: transparent;
-  color: $brand-primary;
-  transition: all 0.3s ease;
+  border-color: #fff;
+  transition: color, background 0.1s ease;
 
   &:hover,
   &:focus {
-    background: $brand-primary;
-    border-color: $brand-primary;
+    color: $brand-primary;
+    background: #fff;
   }
 }
 
@@ -55,7 +78,7 @@
   border: 1px solid #ddd;
 
   thead > tr > th {
-    background: #eee;
+    background: $gray-lighter;
     border-bottom: none;
   }
 }
