@@ -1,5 +1,51 @@
 .navbar {
   margin-bottom: 0;
+  border-radius: 0;
+
+  &-default {
+    .badge {
+      background-color: #fff;
+      color: $navbar-default-bg;
+      border-color: $navbar-default-bg;
+    }
+  }
+
+  &-inverse {
+    .badge {
+      background-color: #fff;
+      color: $navbar-inverse-bg;
+    }
+  }
+}
+
+@media (max-width: $grid-float-breakpoint-max) {
+  .navbar {
+    .dropdown-menu {
+      a {
+        color: #fff;
+      }
+    }
+
+    &-default {
+      border-color: $navbar-default-bg;
+    }
+  }
+}
+
+.btn {
+  border-radius: 300px;
+}
+
+.btn-primary {
+  background: transparent;
+  color: $brand-primary;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background: $brand-primary;
+    border-color: $brand-primary;
+  }
 }
 
 // Theme classes. They override other bootstrap classes.
@@ -12,5 +58,4 @@
     background: #eee;
     border-bottom: none;
   }
-
 }
