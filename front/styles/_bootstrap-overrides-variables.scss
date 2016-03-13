@@ -13,15 +13,16 @@ $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
 $gray-dark:              lighten($gray-base, 20%) !default;   // #333
 $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+// $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$gray-lighter:           lighten($gray-base, 96.7%) !default; // #f7f7f7
 
-// $brand-primary:         #DD4814 !default;
+// $brand-primary:         #dd4814 !default;
 $brand-primary:         #20c0db !default;
 // $brand-primary:         #028090 !default;
-$brand-success:         #38B44A !default;
+$brand-success:         #38b44a !default;
 $brand-info:            #772953 !default;
-$brand-warning:         #EFB73E !default;
-$brand-danger:          #DF382C !default;
+$brand-warning:         #efb73e !default;
+$brand-danger:          #df382c !default;
 
 
 //== Scaffolding
@@ -491,9 +492,12 @@ $pager-disabled-color:                 $gray-light !default;
 //##
 
 $jumbotron-padding:              30px !default;
-$jumbotron-color:                inherit !default;
-$jumbotron-bg:                   $gray-lighter !default;
-$jumbotron-heading-color:        inherit !default;
+// $jumbotron-color:                inherit !default;
+$jumbotron-color:                $gray-lighter !default;
+// $jumbotron-bg:                   $gray-lighter !default;
+$jumbotron-bg:                   $brand-primary !default;
+// $jumbotron-heading-color:        inherit !default;
+$jumbotron-heading-color:        $gray-lighter !default;
 $jumbotron-font-size:            ceil(($font-size-base * 1.5)) !default;
 $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 
