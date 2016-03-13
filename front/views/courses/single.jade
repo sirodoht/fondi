@@ -8,7 +8,11 @@ block content
           .section-header-title
             h2 #{name}
         .col-md-3
-          a(href="/#{username}/#{courseId}/edit").btn.btn-block.btn-default Edit
+          .row
+            .col-md-6.col-md-offset-5
+              a(href="/#{username}/#{courseId}/edit").btn.btn-block.btn-primary
+                i.fa.fa-pencil
+                | &nbsp;Edit
   .section-body
     .container
       .row
