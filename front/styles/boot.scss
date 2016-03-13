@@ -1,4 +1,5 @@
-@import "../static/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "bootstrap-overrides-variables";
+@import "local-bootstrap";
 @import "bootstrap-overrides";
 
 // Variables
@@ -7,6 +8,8 @@ $text-color: rgba(0, 0, 0, 0.8);
 // General sections
 .section-header {
   background-color: #f6f6f6;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .section-header-title {
