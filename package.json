@@ -6,7 +6,7 @@
     "start": "nodemon ./back/app.js & webpack --progress --watch & npm run sass-watch ",
     "test": "",
     "postinstall": "bower install",
-    "deploy": "webpack -p && npm run sass && node ./back/app.js",
+    "deploy": "node_modules/.bin/webpack -p && npm run sass && node ./back/app.js",
     "sass": "node-sass --include-path scss front/styles/boot.scss front/static/css/style.css",
     "sass-watch": "nodemon -e scss -x \"npm run sass\""
   },
