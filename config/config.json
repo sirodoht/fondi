@@ -15,11 +15,11 @@
     "dialect": "portgres"
   },
   "production": {
-    "username": "root",
-    "password": "bc1moTtwpizoWcVr",
+    "username": "fondixyz",
+    "password": "fondixyz",
     "database": "db",
-    "host": "172.17.42.1",
+    "host": "172.16.0.0",
     "dialect": "postgres",
-    "port": "32771"
+    "port": "54321"
   }
 }
