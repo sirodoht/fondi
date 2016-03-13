@@ -3,6 +3,10 @@
 @import "bootstrap-overrides";
 
 // General sections
+body {
+  padding-top: 50px;
+}
+
 .section-header {
   background-color: $brand-primary;
   color: #fff;
