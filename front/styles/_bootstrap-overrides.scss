@@ -9,7 +9,6 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 
     .badge {
-      background-color: #fff;
       background-color: $gray-lighter;
       color: $navbar-default-bg;
     }
@@ -45,14 +44,22 @@
 
 @media (max-width: $grid-float-breakpoint-max) {
   .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+
     .dropdown-menu {
       a {
         color: $gray-lighter;
       }
     }
 
-    &-default {
-      border-color: $navbar-default-bg;
+    &-default .navbar-toggle {
+      border-color: $gray-lighter;
+    }
+
+    .navbar-brand {
+      padding-top: 15px;
+      padding-bottom: 15px;
     }
   }
 }
