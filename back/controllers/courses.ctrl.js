@@ -79,16 +79,18 @@ coursesCtrl.getOwnCourses = function (req, res) {
 };
 
 coursesCtrl.getSection = function (req, res) {
-  models.Section.findOne({
+  models.Section.findAll({
     where: {
-      id: req.params.sectionId,
+      CourseId: req.params.sectionId,
     },
     raw: true,
   })
-    .then(function (section) {
+    .then(function (sections) {
       res.render('courses/section', {
-        name: section.name,
-        content: section.content,
+        username: req.user.username,
+        courseId: req.params.courseId,
+        sections: sections,
+        currentSection: req.params.sectionId,
       });
     });
 };
