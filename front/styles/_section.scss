@@ -1,0 +1,47 @@
+// Sidebar
+.sidebar {
+  display: none;  // Hide for mobile, show later
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;  // Scrollable contents if viewport is shorter than content.
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &:hover,
+    &:focus {
+      opacity: 0.9;
+    }
+  }
+}
+
+// Sidebar navigation
+.nav-sidebar {
+  margin-bottom: 20px;
+}
+
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus {
+  background-color: transparent;
+}
+
+.nav-sidebar a {
+  color: inherit;  // $text-color
+
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
+}
+
+.nav-sidebar > .active > a {
+  color: $link-color;
+}

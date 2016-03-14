@@ -1,0 +1,39 @@
+body {
+  padding-top: 50px;
+}
+
+// Page sections
+.section-header {
+  background-color: $brand-primary;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.section-header-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+.section-body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.section-body-title {
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.share-wrapper {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
