@@ -10,13 +10,14 @@
 
     .badge {
       background-color: #fff;
+      background-color: $gray-lighter;
       color: $navbar-default-bg;
     }
   }
 
   &-inverse {
     .badge {
-      background-color: #fff;
+      background-color: $gray-lighter;
       color: $navbar-inverse-bg;
     }
   }
@@ -46,7 +47,7 @@
   .navbar {
     .dropdown-menu {
       a {
-        color: #fff;
+        color: $gray-lighter;
       }
     }
 
@@ -61,13 +62,13 @@
 }
 
 .btn-primary {
-  border-color: #fff;
+  border-color: $gray-lighter;
   transition: color, background 0.1s ease;
 
   &:hover,
   &:focus {
     color: $brand-primary;
-    background: #fff;
+    background: $gray-lighter;
   }
 }
 
