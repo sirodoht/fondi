@@ -2,7 +2,8 @@ extends ../layout
 
 block content
   .container-fluid
-    .row
+    #sectionView
+    //- .row
       aside.col-sm-2.col-md-2.sidebar
         ul.nav.nav-sidebar
           each section in sections
@@ -12,3 +13,21 @@ block content
         h1.page-header #{sections[currentSection].title}
         p #{sections[currentSection].content}
       .col-sm-2.col-md-2
+    //- .row
+    //-   aside.col-sm-2.col-md-2.sidebar
+    //-     ul.nav.nav-sidebar
+    //-       each section in sections
+    //-         li
+    //-           a(href="/#{username}/#{courseId}/#{section.id}") #{section.title}
+    //-       //- li.active
+    //-       //-   a(href="#") Overview
+    //-       //- li
+    //-       //-   a(href="#") Reports
+    //-       //- li
+    //-       //-   a(href="#") Analytics
+    //-       //- li
+    //-       //-   a(href="#") Export
+    //-   .col-sm-8.col-sm-offset-2.col-md-8.col-md-offset-2.main
+    //-     h1.page-header #{sections[currentSection].title}
+    //-     p #{sections[currentSection].content}
+    //-   .col-sm-2.col-md-2
