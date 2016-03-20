@@ -2,6 +2,13 @@ body {
   padding-top: 50px;
 }
 
+// Navbar
+.logo {
+  height: 30px;
+  position: relative;
+  top: -5px;
+}
+
 // Page sections
 .section-header {
   background-color: $brand-primary;
