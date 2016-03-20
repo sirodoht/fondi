@@ -23,4 +23,6 @@ build/Release
 node_modules
 
 # Static files
-front/static
+front/static/bower_components
+front/static/css
+front/static/js
