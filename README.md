@@ -11,6 +11,10 @@ Fondi uses PostgreSQL See the [config file](config/config.json) for the connecti
 * `npm run sasswatch` Build Sass styles and watch for changes.
 * `npm run deploy` Build front JS app and Sass styles and start Node server.
 
+## Credits
+
+Logo based on [logodust](http://www.logodust.com/).
+
 ## License
 
 MIT
