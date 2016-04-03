@@ -5,7 +5,7 @@ var SectionList = React.createClass({
   render: function() {
     var createItem = function(item) {
       return <li key={item.id}><a href="">{item.title}</a></li>
-    };
+    }
     return (
       <aside className="col-sm-2 col-md-2 sidebar">
         <ul className="nav nav-sidebar">
@@ -27,14 +27,14 @@ const Sections = React.createClass({
   },
 
   componentDidMount: function () {
-    const self = this;
+    const self = this
 
     this.serverRequest = window.fetch('/courses/1/1')
       .then(function (res) {
-        return res.text();
+        return res.text()
       })
       .then(function (body) {
-        var bodyJson = JSON.parse(body);
+        var bodyJson = JSON.parse(body)
         self.setState({
           username: bodyJson.username,
           courseId: bodyJson.courseId,
