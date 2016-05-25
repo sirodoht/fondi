@@ -102,7 +102,7 @@ coursesCtrl.getOwnCourses = function (req, res) {
 coursesCtrl.getSection = function (req, res) {
   models.Section.findAll({
     where: {
-      CourseId: req.params.sectionId,
+      CourseId: req.params.courseId,
     },
     raw: true,
   })
