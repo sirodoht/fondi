@@ -55,7 +55,7 @@ coursesCtrl.getCourse = function (req, res) {
       course.getSections({raw: true})
         .then(function (sections) {
           res.render('courses/single', {
-            username: req.user.username,
+            username: req.params.username,
             courseId: course.id,
             name: course.name,
             description: course.description,
@@ -108,7 +108,7 @@ coursesCtrl.getSection = function (req, res) {
   })
     .then(function (sections) {
       res.render('courses/section', {
-        username: req.user.username,
+        username: req.params.username,
         courseId: req.params.courseId,
         sections: sections,
         currentSection: req.params.sectionId,
