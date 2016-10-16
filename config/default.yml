@@ -1,0 +1,6 @@
+webserver:
+  port: 3000
+  sessionSecret: "these are the words of the secret"
+
+postgres:
+  url: "postgres://sirodoht@127.0.0.1:5432/fondi"
