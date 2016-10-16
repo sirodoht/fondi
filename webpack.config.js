@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'front/scripts/index.js'),
+  entry: ['whatwg-fetch', path.resolve(__dirname, 'front/scripts/index.js')],
   output: {
     path: path.resolve(__dirname, 'front/static/js'),
     filename: 'bundle.js',
