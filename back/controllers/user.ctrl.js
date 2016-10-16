@@ -20,3 +20,8 @@ userCtrl.register = function (req, res) {
 userCtrl.getLogin = function (req, res) {
   res.render('login');
 };
+
+userCtrl.logout = function (req, res) {
+  req.logout();
+  res.redirect('/');
+};
