@@ -1,18 +1,29 @@
-var express = require('express');
+/**
+ * Fondi
+ * An open courses platform.
+ *
+ * @author Theodore Keloglou
+ * @file Main application boot file.
+ */
+
 var path = require('path');
+
+var express = require('express');
 // var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var config = require('config');
 
 var routes = require('./routes/index');
 var helpers = require('./util/helpers');
 var listeners = require('./util/listeners');
-// var db = require('./models/index');
-var models = require('./models');
+var models = require('./models/index');
+var authMidd = require('./middleware/auth.midd');
 
 var app = express();
 
@@ -35,9 +46,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: config.webserver.sessionSecret,
   resave: false,
   saveUninitialized: false,
+  store: new SequelizeStore({
+    db: models.sequelize,
+  }),
 }));
 
 app.use(passport.initialize());
@@ -86,6 +100,8 @@ passport.deserializeUser(function (username, done) {
 
 app.use(express.static(path.join(__dirname, '../front/static')));
 
+app.use(authMidd.check);
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
@@ -115,10 +131,13 @@ app.use(function (err, req, res) {
   });
 });
 
-var port = helpers.normalizePort(process.env.PORT || '3000');
+var port = config.webserver.port;
+if (process.env.PORT) {
+  port = process.env.PORT;
+}
 app.set('port', port);
 
-// models.sequelize.sync({force: true})
+// models.sequelize.sync({ force: true })
 models.sequelize.sync()
   .then(function () {
     app.listen(port);
