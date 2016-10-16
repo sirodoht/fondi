@@ -6,7 +6,7 @@ block content
       .row.vertical-align
         .col-md-9
           .section-header-title
-            h2 Courses by #{username}
+            h2 Courses by #{authed}
         .col-md-3
           .row
             .col-md-6.col-md-offset-5
@@ -18,58 +18,6 @@ block content
       .row
         .col-md-9
           .row
-            .col-md-6
-              .course-summary
-                a(href="/#{username}/1").course-summary-icon
-                  i.fa.fa-book(aria-hidden="true")
-                .course-summary-body
-                  h3.course-summary-body-title
-                    a(href="/#{username}/1") Course Title 101
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    | sed do eiusmod tempor incididunt ut labore et dolore magna
-                    | aliqua. Ut enim ad.
-            .col-md-6
-              .course-summary
-                a(href="/#{username}/1").course-summary-icon
-                  i.fa.fa-book(aria-hidden="true")
-                .course-summary-body
-                  h3.course-summary-body-title
-                    a(href="/#{username}/1") Course Title 101
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    | sed do eiusmod tempor incididunt ut labore et dolore magna
-                    | aliqua. Ut enim ad.
-            .col-md-6
-              .course-summary
-                a(href="/#{username}/1").course-summary-icon
-                  i.fa.fa-book(aria-hidden="true")
-                .course-summary-body
-                  h3.course-summary-body-title
-                    a(href="/#{username}/1") Course Title 101
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    | sed do eiusmod tempor incididunt ut labore et dolore magna
-                    | aliqua. Ut enim ad.
-            .col-md-6
-              .course-summary
-                a(href="/#{username}/1").course-summary-icon
-                  i.fa.fa-book(aria-hidden="true")
-                .course-summary-body
-                  h3.course-summary-body-title
-                    a(href="/#{username}/1") Course Title 101
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    | sed do eiusmod tempor incididunt ut labore et dolore magna
-                    | aliqua. Ut enim ad.
-            .col-md-6
-              .course-summary
-                a(href="/#{username}/1").course-summary-icon
-                  i.fa.fa-book(aria-hidden="true")
-                .course-summary-body
-                  h3.course-summary-body-title
-                    a(href="/#{username}/1") Course Title 101
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    | sed do eiusmod tempor incididunt ut labore et dolore magna
-                    | aliqua. Ut enim ad.
-                    | aliqua. Ut enim ad.
-
             each course in courses
               .col-md-6
                 .course-summary
@@ -84,5 +32,4 @@ block content
           .panel.panel-default
             .panel-heading.text-center
               .panel-title #{username}
-            .panel-body #{username} is an ipsum dolor sit amet, consectetur
-            | adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            .panel-body #{bio}
