@@ -84,8 +84,7 @@ coursesCtrl.getEditCourse = function (req, res) {
 coursesCtrl.getOwnCourses = function (req, res) {
   models.User.findOne({
     where: {
-      // id: req.user.id,
-      id: 1,
+      id: req.user.id,
     },
   })
     .then(function (user) {
@@ -117,9 +116,9 @@ coursesCtrl.getSection = function (req, res) {
 };
 
 coursesCtrl.getNewSection = function (req, res) {
-  res.render('courses/section', {
-    title: '',
-    content: '',
+  res.render('courses/new-section', {
+    username: req.user.username,
+    courseId: req.params.courseId,
   });
 };
 
@@ -129,17 +128,19 @@ coursesCtrl.edit = function (req, res) {
       models.Course.findOne({where: {id: req.params.courseId}})
         .then(function (course) {
           course.addSection(section);
-          // res.redirect(req.get('referer'));
           res.redirect('/' + req.user.username + '/' + req.params.courseId);
         });
     });
 };
 
 coursesCtrl.sectionNew = function (req, res) {
-  // const username = req.user.username;
-  const username = 'teo';
+  const username = req.user.username;
+  const sectionData = {
+    title: req.body.title,
+    content: req.body.content,
+  }
 
-  models.Section.create(req.body)
+  models.Section.create(sectionData)
     .then(function (section) {
       models.Course.findOne({where: {id: req.params.courseId}})
         .then(function (course) {
