@@ -26,10 +26,10 @@ block content
               each value in sections
                 tr
                   td
-                    a(href="/#{username}/#{courseId}/#{value.id}") #{value.title}
+                    a(href="/" + username + "/" + courseId + "/" + value.id) #{value.title}
                   td #{value.content}
 
-            form.form-horizontal(action="/courses/#{courseId}", method="POST")
+            form.form-horizontal(action='/courses/' + courseId, method="POST")
               fieldset
                 .form-group
                   label.col-md-4.control-label(for="title") Title
