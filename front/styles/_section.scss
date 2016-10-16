@@ -13,7 +13,7 @@
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto;  // Scrollable contents if viewport is shorter than content.
-    opacity: 0;
+    opacity: 0.8;
     transition: opacity 0.2s ease;
 
     &:hover,
@@ -44,4 +44,22 @@
 
 .nav-sidebar > .active > a {
   color: $link-color;
+}
+
+.editor {
+  width: 100%;
+  height: 500px;
+  outline: 0;
+  resize: vertical;
+  border: 1px solid #ccc;
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.section-header {
+  h2 {
+    outline: 0;
+  }
 }
