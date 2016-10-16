@@ -134,3 +134,17 @@ coursesCtrl.edit = function (req, res) {
         });
     });
 };
+
+coursesCtrl.sectionNew = function (req, res) {
+  // const username = req.user.username;
+  const username = 'teo';
+
+  models.Section.create(req.body)
+    .then(function (section) {
+      models.Course.findOne({where: {id: req.params.courseId}})
+        .then(function (course) {
+          course.addSection(section);
+          res.redirect('/' + username + '/' + req.params.courseId);
+        });
+    });
+};
