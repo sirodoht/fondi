@@ -23,6 +23,7 @@
     "bower": "1.7.9",
     "cookie-parser": "1.4.3",
     "debug": "2.2.0",
+    "draft-js": "0.9.1",
     "express": "4.14.0",
     "express-session": "1.14.1",
     "morgan": "1.7.0",
@@ -36,7 +37,8 @@
     "react-dom": "15.3.2",
     "sequelize": "3.24.3",
     "serve-favicon": "2.3.0",
-    "webpack": "1.13.2"
+    "webpack": "1.13.2",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "babel-core": "6.17.0",
