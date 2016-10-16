@@ -10,7 +10,7 @@ block content
         .col-md-3
           .row
             .col-md-6.col-md-offset-5
-              a(href="/#{username}/#{courseId}/edit").btn.btn-block.btn-primary
+              a(href="/new").btn.btn-block.btn-primary
                 i.fa.fa-file-o
                 | &nbsp;Create
   .section-body
@@ -69,7 +69,7 @@ block content
                     | sed do eiusmod tempor incididunt ut labore et dolore magna
                     | aliqua. Ut enim ad.
                     | aliqua. Ut enim ad.
-                
+
             each course in courses
               .col-md-6
                 .course-summary
@@ -79,10 +79,10 @@ block content
                     h3.course-summary-body-title
                       a(href="/#{username}/1") #{course.name}
                     p #{course.description}
-              
+
         .col-md-3
           .panel.panel-default
             .panel-heading.text-center
-                .panel-title #{username}
-              .panel-body #{username} is an ipsum dolor sit amet, consectetur
-              | adipisicing elit, sed do eiusmod tempor incididunt ut labore et 
+              .panel-title #{username}
+            .panel-body #{username} is an ipsum dolor sit amet, consectetur
+            | adipisicing elit, sed do eiusmod tempor incididunt ut labore et

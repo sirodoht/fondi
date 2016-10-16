@@ -1,0 +1,88 @@
+extends ../layout
+
+block content
+  .section-header
+    .container
+      .row.vertical-align
+        .col-md-9
+          .section-header-title
+            h2 #{name}
+        .col-md-3
+          .row
+            .col-md-6.col-md-offset-5
+              a(href="/" + username + "/" + courseId + "/edit").btn.btn-block.btn-primary Edit
+  .section-body
+    .container
+      .row
+        .col-md-9
+          .single
+            .section-body-title Description
+            p.lead #{description}
+            table.table.table-hover.theme-table
+              thead
+                tr
+                  th Sections
+              tbody
+                //- tr
+                //-   td
+                //-     a(href="/#{username}/#{courseId}/1").course-single-section
+                //-       h3 Chapter 1: this Or That?
+                //-       p One of the most confused mechanisms in JavaScript is
+                //-         | the this keyword. It's a special identifier keyword
+                //-         | that's automatically defined in the scope of every
+                //-         | function, but what exactly it refers to bedevils even
+                //-         | seasoned JavaScript developers.
+                //- tr
+                //-   td
+                //-     a(href="/#{username}/#{courseId}/1").course-single-section
+                //-       h3 Chapter 2: this All Makes Sense Now!
+                //-       p JavaScript's this mechanism isn't actually that advanced,
+                //-         | but developers often paraphrase that quote in their
+                //-         | own mind by inserting "complex" or "confusing", and
+                //-         | there's no question that without lack of clear
+                //-         | understanding, this can seem downright magical
+                //-         | in your confusion.
+                //- tr
+                //-   td
+                //-     a(href="/#{username}/#{courseId}/1").course-single-section
+                //-       h3 Chapter 3: Objects
+                //-       p One of the most confused mechanisms in JavaScript is
+                //-         | the this keyword. It's a special identifier keyword
+                //-         | that's automatically defined in the scope of every
+                //-         | function, but what exactly it refers to bedevils even
+                //-         | seasoned JavaScript developers.
+                //- tr
+                //-   td
+                //-     a(href="/#{username}/#{courseId}/1").course-single-section
+                //-       h3 Chapter 4: Mixing (Up) "Class" Objects
+                //-       p If the this mechanism is so confusing, even to seasoned
+                //-         | JavaScript developers, one may wonder why it's even
+                //-         | useful? Is it more trouble than it's worth? Before we
+                //-         | jump into the how, we should examine the why.
+                //- tr
+                //-   td
+                //-     a(href="/#{username}/#{courseId}/1").course-single-section
+                //-       h3 Chapter 5: Prototypes
+                //-       p One of the most confused mechanisms in JavaScript is
+                //-         | the this keyword. It's a special identifier keyword
+                //-         | that's automatically defined in the scope of every
+                //-         | seasoned JavaScript developers.
+
+              each value in sections
+                tr
+                  td
+                    a(href="/#{username}/#{courseId}/1").course-single-section
+                      h3 #{value.title}
+                      p #{value.content}
+
+        .col-md-3
+          .panel.panel-default
+            .panel-heading.text-center
+              .panel-title #{username}
+            .panel-body User intro #{username} is an ipsum dolor sit amet, consectetur
+              | adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          .panel.panel-default
+            .panel-body
+              a(href="#").share-wrapper
+                i.fa.fa-share
+                | &nbsp;Share

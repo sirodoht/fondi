@@ -3,17 +3,17 @@ extends ../layout
 block content
   .container
     .row
-      .col-md-8.col-md-offset-2
+      .col-md-8.col-md-offset-2.section-simple
         form.form-horizontal(action="/courses", method="POST")
           fieldset
             legend
-              h1.text-center Create new course
+              h1.text-center Create a new course
             .form-group
-              label.col-md-4.control-label(for="name") Course name
+              label.col-md-4.control-label(for="name") Name
               .col-md-4
                 input.form-control.input-md(name="name", required, type="text")
             .form-group
-              label.col-md-4.control-label(for="desc") Course byline
+              label.col-md-4.control-label(for="desc") Byline
               .col-md-4
                 input.form-control.input-md(name="desc", required, type="text")
             .form-group

@@ -3,9 +3,7 @@ extends layout
 block content
   .container
     .row
-      .col-md-8.col-md-offset-2
-        //- h1 Register new user
-
+      .col-md-8.col-md-offset-2.section-simple
         form.form-horizontal(action="/register", method="POST")
           fieldset
             legend
@@ -13,19 +11,19 @@ block content
             .form-group
               label.col-md-4.control-label(for='username') Username
               .col-md-4
-                input#username.form-control.input-md(name='username', placeholder='angeleyes', required, type='text')
+                input#username.form-control.input-md(name='username', , required, type='text')
             .form-group
               label.col-md-4.control-label(for='name') Name
               .col-md-4
-                input#name.form-control.input-md(name='name', placeholder='Angel Eyes', required, type='text')
+                input#name.form-control.input-md(name='name', required, type='text')
             .form-group
               label.col-md-4.control-label(for='email') Email
               .col-md-4
-                input#email.form-control.input-md(name='email', placeholder='angeleyes@miusystem.com', required, type='text')
+                input#email.form-control.input-md(name='email', required, type='text')
             .form-group
               label.col-md-4.control-label(for='password') Password
               .col-md-4
-                input#password.form-control.input-md(name='password', placeholder='••••••••••••', required, type='password')
+                input#password.form-control.input-md(name='password', required, type='password')
             .form-group
               .col-md-4.col-md-offset-4
                 button#signup.btn.btn-primary Create an account
