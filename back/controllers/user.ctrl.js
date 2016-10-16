@@ -2,27 +2,6 @@ var models = require('../models');
 
 var userCtrl = module.exports = {};
 
-userCtrl.getUser = function (req, res) {
-  var userParam = req.params.username;
-
-  models.User.findOne({
-    where: {
-      username: userParam,
-    },
-  }).then(function (user) {
-    var userEmail = '';
-    if (user !== null) {
-      userEmail = user.dataValues.email;
-    }
-
-    res.render('user', {
-      email: userEmail,
-      name: user.name,
-      username: user.username,
-    });
-  });
-};
-
 userCtrl.getRegister = function (req, res) {
   res.render('register');
 };
