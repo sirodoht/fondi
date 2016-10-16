@@ -1,16 +1,17 @@
 var path = require('path');
 
 var Sequelize = require('sequelize');
+var config = require('config');
 
-var env = process.env.NODE_ENV || 'development';
-var config = require(__dirname + '/../../config/config.json')[env];
-var sequelize = new Sequelize(config.database, config.username, config.password, config);
+var sequelize = new Sequelize(config.postgres.url, {
+  logging: false,
+});
 
 var user = sequelize.import(path.join(__dirname, 'user.model.js'));
 var course = sequelize.import(path.join(__dirname, 'course.model.js'));
 var section = sequelize.import(path.join(__dirname, 'section.model.js'));
 
-var db = {
+var models = {
   User: user,
   Course: course,
   Section: section,
@@ -18,12 +19,10 @@ var db = {
   Sequelize: Sequelize,
 };
 
-db.Course.belongsToMany(db.User, {through: 'UserCourse'});
-db.User.belongsToMany(db.Course, {through: 'UserCourse'});
+models.Course.belongsToMany(models.User, {through: 'UserCourse'});
+models.User.belongsToMany(models.Course, {through: 'UserCourse'});
 
-db.Course.hasMany(db.Section);
-db.Section.belongsTo(db.Course);
+models.Course.hasMany(models.Section);
+models.Section.belongsTo(models.Course);
 
-sequelize.sync();
-
-module.exports = db;
+module.exports = models;
