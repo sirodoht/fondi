@@ -65,17 +65,32 @@
 }
 
 .btn {
-  border-radius: 300px;
+  border-radius: 5px;
 }
 
 .btn-primary {
   border-color: $gray-lighter;
   transition: color, background 0.1s ease;
 
-  &:hover,
+  &:hover {
+    background: darken($brand-primary, 5);
+    border-color: $gray-lighter;
+  }
+
   &:focus {
-    color: $brand-primary;
-    background: $gray-lighter;
+    background: $brand-success;
+  }
+}
+
+input[type="text"].form-control,
+input[type="password"].form-control {
+  box-shadow: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  &:focus {
+    outline: 0;
+    border-color: $brand-primary;
   }
 }
 
