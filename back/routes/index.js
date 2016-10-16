@@ -24,6 +24,7 @@ router.get('/profile', userCtrl.getUser);
 router.get('/new', coursesCtrl.getCreate);
 router.get('/:username', coursesCtrl.getOwnCourses);
 router.get('/:username/:courseId', coursesCtrl.getCourse);
+router.post('/:username/:courseId', coursesCtrl.sectionNew);
 router.get('/:username/:courseId/edit', coursesCtrl.getEditCourse);
 router.get('/:username/:courseId/new', coursesCtrl.getNewSection);
 router.get('/:username/:courseId/:sectionId', coursesCtrl.getSection);
