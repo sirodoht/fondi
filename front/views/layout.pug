@@ -25,7 +25,7 @@ html(lang="en")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:400,500,300")
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="/css/style.css")
-      
+
     title #{title}
   body
     nav.navbar.navbar-default.navbar-fixed-top
@@ -44,11 +44,15 @@ html(lang="en")
               a(href="/new") Create course
             li
               a(href="/courses") My courses
-            li
-              a(href="/join") Sign up
-            li
-              a(href="/login") Sign in
+            if !authed
+              li
+                a(href="/join") Sign up
+              li
+                a(href="/login") Sign in
+            else
+              li
+                a(href="/logout") Log out
+
     block content
-    
+
     script(src="/js/bundle.js")
-    
