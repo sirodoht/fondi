@@ -11,28 +11,13 @@ module.exports = function (sequelize, DataTypes) {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     name: DataTypes.STRING,
+    bio: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       validate: {
         isEmail: true,
       },
     },
-
-    lastLogin: Sequelize.DATE,
-    lastIp: {
-      type: Sequelize.STRING,
-      validate: {
-        isIP: true,
-      },
-    },
-
-    website: {
-      type: DataTypes.STRING,
-      validate: {
-        isUrl: true,
-      },
-    },
-    location: DataTypes.STRING,
   };
 
   var options = {};
