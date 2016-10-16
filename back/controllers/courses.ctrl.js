@@ -44,7 +44,7 @@ coursesCtrl.create = function (req, res) {
       models.User.findOne({where: {id: req.user.id}})
         .then(function (user) {
           user.addCourse(course);
-          res.redirect('/courses/' + course.id);
+          res.redirect('/' + req.user.username + '/' + course.id);
         });
     });
 };
@@ -92,6 +92,7 @@ coursesCtrl.getOwnCourses = function (req, res) {
         .then(function (courses) {
           res.render('user-courses', {
             username: user.username,
+            bio: user.bio,
             courses: courses,
           });
         })
