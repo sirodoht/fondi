@@ -20,22 +20,13 @@ router.get('/join', userCtrl.getRegister);
 router.post('/register', userCtrl.register);
 router.get('/login', userCtrl.getLogin);
 
-// https://github.com/jaredhanson/passport/issues/482
+// @see https://github.com/jaredhanson/passport/issues/482
 router.post('/login', [
-    passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }),
-    function (req, res, next) {
-      req.session.save();
-      next();
-    },
-    authMidd.check,
-  ]
-);
+  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }),
+  authMidd.check,
+]);
 router.get('/logout', [
   userCtrl.logout,
-  function (req, res, next) {
-    req.session.save();
-    next();
-  },
   authMidd.check,
 ]);
 
