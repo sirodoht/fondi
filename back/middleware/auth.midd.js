@@ -14,7 +14,6 @@ auth.authOnly = function (req, res, next) {
 }
 
 auth.check = function (req, res, next) {
-  console.log('req.isAuthenticated():', req.isAuthenticated());
   if (req.isAuthenticated()) {
     res.locals.authed = true;
   } else {
