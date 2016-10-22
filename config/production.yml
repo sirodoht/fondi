@@ -1,0 +1,6 @@
+webserver:
+  port: 80
+  sessionSecret: "these are the words of the secret"
+
+postgres:
+  url: "postgres://postgres:4a6f19b4f8b8e77af55a15195780ab70@dokku-postgres-fondi:5432/fondi"
