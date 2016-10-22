@@ -27,6 +27,7 @@
     "debug": "2.2.0",
     "express": "4.14.0",
     "express-session": "1.14.1",
+    "js-yaml": "3.6.1",
     "morgan": "1.7.0",
     "node-sass": "3.10.1",
     "passport": "0.3.2",
