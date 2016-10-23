@@ -3,18 +3,43 @@ extends layout
 block content
   .jumbotron
     .container
-      img(src="img/logo_white.png", alt="logo", height="80px", style="margin-bottom: 50px;").pull-right
-      p Why should teaching be a profession?
-      p Create a course. Follow another.
+      if authed
+        h1 Welcome back, #{name}
+      else
+        img(src="img/logo_white.png", alt="logo", height="50px", style="margin-bottom: 30px;")
+        p Open courses platform
   .container
     .row
-      .col-md-3.col-md-offset-9
-        .panel.panel-default
-          .panel-heading
-            h3.panel-title My projects
-          .panel-body
-            ul
-              li Classical Inheritance in Javascript
-              li Convolutional neural networks
-              li Algorithmic music composition
-              li Advanced React Patterns
+      if authed
+        .col-md-9
+          h3 My Courses
+          hr
+          .row
+            each course in courses
+              .col-md-6
+                .course-summary
+                  a(href="/" + username + "/" + course.order).course-summary-icon
+                    i.fa.fa-book(aria-hidden="true")
+                  .course-summary-body
+                    h3.course-summary-body-title
+                      a(href="/" + username + "/" + course.order) #{course.name}
+                    p #{course.description}
+
+        .col-md-3
+          .panel.panel-default
+            .panel-heading.text-center
+              .panel-title #{username}
+            .panel-body #{bio}
+      .col-md-9
+        h3 Discover Courses
+        hr
+        .row
+          each course in publicCourses
+            .col-md-6
+              .course-summary
+                a(href="/" + username + "/" + course.order).course-summary-icon
+                  i.fa.fa-book(aria-hidden="true")
+                .course-summary-body
+                  h3.course-summary-body-title
+                    a(href="/" + username + "/" + course.order) #{course.name}
+                  p #{course.description}
