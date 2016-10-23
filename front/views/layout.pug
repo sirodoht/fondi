@@ -40,16 +40,16 @@ html(lang="en")
             img(src="/img/mark_white.png", alt="logo").logo
         .navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
-            li
-              a(href="/new") Create course
-            li
-              a(href="/" + username) My courses
             if !authed
               li
                 a(href="/join") Sign up
               li
                 a(href="/login") Sign in
             else
+              li
+                a(href="/new") Create course
+              li
+                a(href="/" + username) My courses
               li
                 a(href="/logout") Log out
 
