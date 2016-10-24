@@ -3,6 +3,7 @@
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 0;
+  background-color: #fff;
 
   &-default {
     border: none;
@@ -27,18 +28,16 @@
     height: 0;
   }
 
-  .nav li:not(:first-child) {
-    border-left: 1px solid rgba(255, 255, 255, 0.7);
-  }
-
   .navbar-nav > li > a {
     padding-top: 0;
     padding-bottom: 0;
+    color: $navbar-default-bg;
   }
 
   .navbar-nav > li > a:hover,
   .navbar-nav > li > a:focus {
-    background-color: $navbar-default-bg;
+    color: darken($navbar-default-bg, 10%);
+    background-color: #fff;
   }
 }
 
