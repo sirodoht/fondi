@@ -7,7 +7,7 @@ extends: 'eslint:recommended'
 rules:
   indent:
     - error
-    - 4
+    - 2
   linebreak-style:
     - error
     - unix
@@ -17,3 +17,5 @@ rules:
   semi:
     - error
     - always
+  no-console:
+    - 0
