@@ -10,6 +10,7 @@ userCtrl.register = function (req, res) {
   models.User.create({
     username: req.body.username,
     name: req.body.name,
+    bio: req.body.bio,
     email: req.body.email,
     password: req.body.password,
   }).then(function () {
