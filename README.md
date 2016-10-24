@@ -4,12 +4,12 @@
 
 ## Setup
 
-Fondi uses PostgreSQL See the [config file](config/config.json) for the connection.
+Use `npm install` to install the required dependencies.
 
-* `npm start` Start Node server and watch JS and Sass files.
-* `npm run sass` Build Sass styles.
-* `npm run sasswatch` Build Sass styles and watch for changes.
-* `npm run deploy` Build front JS app and Sass styles and start Node server.
+Fondi uses PostgreSQL. See the [config file](config/default.yml) for the connection.
+
+* `npm start` Compile Sass styles and then start Node server.
+* `npm run watch` Compile Sass styles, start Node server, and watch for changes.
 
 ## Credits
 
