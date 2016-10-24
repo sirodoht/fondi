@@ -1,5 +1,4 @@
 var Promise = require('bluebird');
-var Sequelize = require('sequelize');
 var bcrypt = require('bcrypt');
 
 Promise.promisifyAll(require('bcrypt'));

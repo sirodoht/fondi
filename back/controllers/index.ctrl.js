@@ -14,7 +14,7 @@ indexCtrl.getIndex = function (req, res) {
     })
       .then(function (resUser) {
         user = resUser;
-        return resUser.getCourses({raw: true})
+        return resUser.getCourses({raw: true});
       })
       .then(function (resCourses) {
         userCourses = resCourses;

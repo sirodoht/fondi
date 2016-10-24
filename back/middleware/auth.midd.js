@@ -1,4 +1,4 @@
-var auth = module.exports = {}
+var auth = module.exports = {};
 
 auth.authOnly = function (req, res, next) {
   if (req.isAuthenticated()) {
@@ -11,7 +11,7 @@ auth.authOnly = function (req, res, next) {
       message: 'Not Authorised',
     });
   }
-}
+};
 
 auth.check = function (req, res, next) {
   if (req.isAuthenticated()) {
@@ -20,4 +20,4 @@ auth.check = function (req, res, next) {
     res.locals.authed = false;
   }
   next();
-}
+};

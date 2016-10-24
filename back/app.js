@@ -1,6 +1,6 @@
 /**
  * Fondi
- * An open courses platform.
+ * Open courses platform.
  *
  * @author Theodore Keloglou
  * @file Main application boot file.
@@ -10,7 +10,6 @@ var path = require('path');
 
 var express = require('express');
 // var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -20,7 +19,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var config = require('config');
 
 var routes = require('./routes/index');
-var helpers = require('./util/helpers');
 var listeners = require('./util/listeners');
 var models = require('./models/index');
 var authMidd = require('./middleware/auth.midd');
@@ -122,7 +120,6 @@ if (app.get('env') === 'development') {
   });
 }
 
-// TODO: production error handler, no stacktraces leaked to user
 app.use(function (err, req, res) {
   res.status(err.status || 500);
   res.render('error', {

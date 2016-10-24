@@ -7,7 +7,7 @@ coursesCtrl.getCreate = function (req, res) {
 };
 
 coursesCtrl.create = function (req, res) {
-  let resCourse = null;
+  let newCourse = null;
 
   const courseDetails = {
     name: req.body.name,
@@ -16,7 +16,7 @@ coursesCtrl.create = function (req, res) {
   models.Course.create(courseDetails)
     .then(function (resCourse) {
       newCourse = resCourse;
-      return models.User.findOne({where: {id: req.user.id}})
+      return models.User.findOne({where: {id: req.user.id}});
     })
     .then(function (user) {
       user.addCourse(newCourse);
@@ -49,7 +49,7 @@ coursesCtrl.getEditCourse = function (req, res) {
   models.Course.findOne({where: {id: req.params.courseId}})
     .then(function (resCourse) {
       course = resCourse;
-      return resCourse.getSections({raw: true})
+      return resCourse.getSections({raw: true});
     })
     .then(function (sections) {
       res.render('courses/edit', {
@@ -72,7 +72,7 @@ coursesCtrl.getOwnCourses = function (req, res) {
   })
     .then(function (resUser) {
       user = resUser;
-      return user.getCourses({raw: true})
+      return user.getCourses({raw: true});
     })
     .then(function (courses) {
       res.render('user-courses', {
@@ -80,7 +80,7 @@ coursesCtrl.getOwnCourses = function (req, res) {
         bio: user.bio,
         courses: courses,
       });
-    })
+    });
 };
 
 coursesCtrl.getSection = function (req, res) {
@@ -113,7 +113,7 @@ coursesCtrl.edit = function (req, res) {
   return models.Section.create(req.body)
     .then(function (resSection) {
       section = resSection;
-      return models.Course.findOne({where: {id: req.params.courseId}})
+      return models.Course.findOne({where: {id: req.params.courseId}});
     })
     .then(function (course) {
       course.addSection(section);
@@ -126,7 +126,7 @@ coursesCtrl.sectionNew = function (req, res) {
   const sectionData = {
     title: req.body.title,
     content: req.body.content,
-  }
+  };
 
   let section = null;
 
