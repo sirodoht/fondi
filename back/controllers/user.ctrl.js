@@ -14,7 +14,7 @@ userCtrl.register = function (req, res) {
     email: req.body.email,
     password: req.body.password,
   }).then(function () {
-    res.redirect('/' + req.body.username);
+    res.redirect('/login');
   });
 };
 
