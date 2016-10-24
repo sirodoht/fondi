@@ -7,13 +7,9 @@ var userCtrl = require('../controllers/user.ctrl');
 var coursesCtrl = require('../controllers/courses.ctrl');
 var authMidd = require('../middleware/auth.midd');
 
-/* API routes */
-router.get('/courses', coursesCtrl.list);
 router.post('/courses', coursesCtrl.create);
 router.post('/courses/:courseId', coursesCtrl.edit);
-router.get('/courses/:courseId/:sectionId', coursesCtrl.sections);
 
-/* Frontend routes */
 router.get('/', indexCtrl.getIndex);
 
 router.get('/join', userCtrl.getRegister);

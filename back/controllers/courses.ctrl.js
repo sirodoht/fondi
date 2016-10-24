@@ -2,34 +2,6 @@ var models = require('../models');
 
 var coursesCtrl = module.exports = {};
 
-coursesCtrl.list = function (req, res) {
-  models.Course.findAll()
-    .then(function (allCourses) {
-      res.send(allCourses);
-    });
-};
-
-coursesCtrl.sections = function (req, res) {
-  models.Section.findAll({
-    where: {
-      CourseId: req.params.sectionId,
-    },
-    raw: true,
-  })
-    .then(function (sections) {
-      var username = 'sirodoht';
-      if (req.user) {
-        username = req.user.username;
-      }
-      res.json({
-        username: username,
-        courseId: req.params.courseId,
-        sections: sections,
-        currentSection: req.params.sectionId,
-      });
-    });
-};
-
 coursesCtrl.getCreate = function (req, res) {
   res.render('courses/create');
 };
