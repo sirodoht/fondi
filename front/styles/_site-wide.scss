@@ -1,4 +1,10 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
+  margin: 0 0 50px;
   padding-top: 50px;
 }
 
@@ -47,4 +53,21 @@ body {
   &:focus {
     text-decoration: none;
   }
+}
+
+// Footer
+footer {
+  color: #bbb;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
+
+.sticky {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
 }
