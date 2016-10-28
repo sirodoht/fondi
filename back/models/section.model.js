@@ -1,11 +1,20 @@
+const slug = require('slug');
+
 module.exports = function (sequelize, DataTypes) {
-  var attributes = {
-    order: DataTypes.INTEGER,
+  const attributes = {
     title: DataTypes.STRING,
+    slug: DataTypes.STRING,
     content: DataTypes.TEXT,
   };
 
-  var Section = sequelize.define('Section', attributes);
+  const Section = sequelize.define('Section', attributes);
+
+  const slugNameHook = function (course) {
+    course.slug = slug(course.title, { lower: true });
+  };
+
+  Section.beforeCreate(slugNameHook);
+  Section.beforeUpdate(slugNameHook);
 
   return Section;
 };
