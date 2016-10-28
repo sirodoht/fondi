@@ -5,10 +5,15 @@ block content
     .row
       aside.col-sm-2.col-md-2.sidebar
         ul.nav.nav-sidebar
+          li
+            a(href="/" + username + "/" + courseSlug)
+              i.fa.fa-angle-left &nbsp;
+              | Back to Course
+          hr
           each section in sections
             li
-              a(href="/" + username + "/" + courseId + "/" + section.id) #{section.title}
+              a(href="/" + username + "/" + courseSlug + "/" + section.slug) #{section.title}
       .col-sm-8.col-sm-offset-2.col-md-8.col-md-offset-2.main
-        h1.page-header #{sections[currentSection].title}
-        p #{sections[currentSection].content}
+        h1.page-header #{currentSection.title}
+        p #{currentSection.content}
       .col-sm-2.col-md-2
