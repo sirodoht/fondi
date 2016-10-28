@@ -25,11 +25,12 @@ router.get('/logout', [
 
 router.get('/new', [authMidd.authOnly, coursesCtrl.getCreate]);
 router.post('/new', [authMidd.authOnly, coursesCtrl.create]);
+
 router.get('/:username', coursesCtrl.getOwnCourses);
-router.get('/:username/:courseId', coursesCtrl.getCourse);
-router.post('/:username/:courseId', coursesCtrl.sectionNew);
-router.get('/:username/:courseId/edit', [authMidd.authOnly, coursesCtrl.getEditCourse]);
-router.get('/:username/:courseId/new', [authMidd.authOnly, coursesCtrl.getNewSection]);
-router.get('/:username/:courseId/:sectionId', coursesCtrl.getSection);
+
+router.get('/:username/:courseSlug', coursesCtrl.getCourse);
+router.post('/:username/:courseSlug', coursesCtrl.sectionNew);
+router.get('/:username/:courseSlug/new', [authMidd.authOnly, coursesCtrl.getNewSection]);
+router.get('/:username/:courseSlug/:sectionSlug', coursesCtrl.getSection);
 
 module.exports = router;
