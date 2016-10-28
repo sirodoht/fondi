@@ -16,47 +16,28 @@ coursesCtrl.create = function (req, res) {
   models.Course.create(courseDetails)
     .then(function (resCourse) {
       newCourse = resCourse;
-      return models.User.findOne({where: {id: req.user.id}});
+      return models.User.findOne({ where: { id: req.user.id } });
     })
     .then(function (user) {
       user.addCourse(newCourse);
-      res.redirect('/' + req.user.username + '/' + newCourse.id);
+      res.redirect('/' + req.user.username + '/' + newCourse.slug);
     });
 };
 
 coursesCtrl.getCourse = function (req, res) {
   let course = null;
 
-  models.Course.findOne({where: {id: req.params.courseId}})
+  models.Course.findOne({ where: { slug: req.params.courseSlug } })
     .then(function (resCourse) {
       course = resCourse;
-      return resCourse.getSections({raw: true});
+      return resCourse.getSections({ raw: true });
     })
     .then(function (sections) {
       res.render('courses/single', {
         username: req.params.username,
-        courseId: course.id,
         name: course.name,
+        courseSlug: course.slug,
         description: course.description,
-        sections: sections,
-      });
-    });
-};
-
-coursesCtrl.getEditCourse = function (req, res) {
-  let course = null;
-
-  models.Course.findOne({where: {id: req.params.courseId}})
-    .then(function (resCourse) {
-      course = resCourse;
-      return resCourse.getSections({raw: true});
-    })
-    .then(function (sections) {
-      res.render('courses/edit', {
-        username: req.user.username,
-        courseId: course.id,
-        name: course.name,
-        desc: course.description,
         sections: sections,
       });
     });
@@ -65,11 +46,7 @@ coursesCtrl.getEditCourse = function (req, res) {
 coursesCtrl.getOwnCourses = function (req, res) {
   let user = null;
 
-  return models.User.findOne({
-    where: {
-      id: req.user.id,
-    },
-  })
+  return models.User.findOne({ where: { id: req.user.id } })
     .then(function (resUser) {
       user = resUser;
       return user.getCourses({raw: true});
@@ -84,18 +61,24 @@ coursesCtrl.getOwnCourses = function (req, res) {
 };
 
 coursesCtrl.getSection = function (req, res) {
-  return models.Section.findAll({
-    where: {
-      CourseId: req.params.courseId,
-    },
-    raw: true,
-  })
+  let currentSection = null;
+
+  return models.Section.findOne({ where: { slug: req.params.sectionSlug } })
+    .then(function (resSection) {
+      currentSection = resSection;
+      return models.Section.findAll({
+        where: {
+          CourseId: currentSection.CourseId,
+        },
+        raw: true,
+      });
+    })
     .then(function (sections) {
       res.render('courses/section', {
         username: req.params.username,
-        courseId: req.params.courseId,
+        courseSlug: req.params.courseSlug,
         sections: sections,
-        currentSection: req.params.sectionId,
+        currentSection,
       });
     });
 };
@@ -103,22 +86,8 @@ coursesCtrl.getSection = function (req, res) {
 coursesCtrl.getNewSection = function (req, res) {
   res.render('courses/new-section', {
     username: req.user.username,
-    courseId: req.params.courseId,
+    courseSlug: req.params.courseSlug,
   });
-};
-
-coursesCtrl.edit = function (req, res) {
-  let section = null;
-
-  return models.Section.create(req.body)
-    .then(function (resSection) {
-      section = resSection;
-      return models.Course.findOne({where: {id: req.params.courseId}});
-    })
-    .then(function (course) {
-      course.addSection(section);
-      res.redirect('/' + req.user.username + '/' + req.params.courseId);
-    });
 };
 
 coursesCtrl.sectionNew = function (req, res) {
@@ -133,10 +102,10 @@ coursesCtrl.sectionNew = function (req, res) {
   return models.Section.create(sectionData)
     .then(function (resSection) {
       section = resSection;
-      return models.Course.findOne({where: {id: req.params.courseId}});
+      return models.Course.findOne({ where: { slug: req.params.courseSlug } });
     })
     .then(function (course) {
       course.addSection(section);
-      res.redirect('/' + username + '/' + req.params.courseId);
+      res.redirect('/' + username + '/' + req.params.courseSlug);
     });
 };
