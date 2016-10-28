@@ -93,6 +93,10 @@ input[type="password"].form-control {
   }
 }
 
+.alert-success {
+  background-color: transparent;
+}
+
 // Theme classes. They override other bootstrap classes.
 .theme-table {
   border-radius: 5px;
