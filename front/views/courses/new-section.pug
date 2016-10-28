@@ -8,7 +8,7 @@ block content
           .section-header-title
             h2#title(contenteditable) Title...
         .col-md-3.text-right
-          a(href="/" + username + "/" + courseId).btn.btn-sm.btn-primary Back
+          a(href="/" + username + "/" + courseSlug).btn.btn-sm.btn-primary Back
           a#save(href="#" style="margin-left: 20px; padding-left: 30px; padding-right: 30px;").btn.btn-primary Save
   .section-body
     .container
@@ -17,16 +17,15 @@ block content
           textarea#content.editor(placeholder="Maybe start with a story...")
 
   script.
-    const endpoint = '/#{username}/#{courseId}';
+    const endpoint = '/#{username}/#{courseSlug}';
 
     document.getElementById('save').addEventListener('click', () => {
       const title = document.getElementById('title').innerHTML;
       const content = document.getElementById('content').value;
 
-      console.log('content:', content);
-
       fetch(endpoint, {
         method: 'POST',
+        credentials: 'same-origin',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -36,4 +35,10 @@ block content
           content,
         })
       })
+      .then(data => {
+        if (data.status === 200) {
+          window.location = endpoint;
+        }
+      });
+
     });
