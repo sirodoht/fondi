@@ -21,11 +21,11 @@ block content
             each course in courses
               .col-md-6
                 .course-summary
-                  a(href="/#{username}/1").course-summary-icon
+                  a(href="/" + username + "/" + course.slug).course-summary-icon
                     i.fa.fa-book(aria-hidden="true")
                   .course-summary-body
                     h3.course-summary-body-title
-                      a(href="/#{username}/1") #{course.name}
+                      a(href="/" + username + "/" + course.slug) #{course.name}
                     p #{course.description}
 
         .col-md-3
