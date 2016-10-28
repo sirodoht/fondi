@@ -10,7 +10,7 @@ block content
         .col-md-3
           .row
             .col-md-6.col-md-offset-5
-              a(href="/" + username + "/" + courseId + "/edit").btn.btn-block.btn-primary Edit
+              a(href="/" + username + "/" + courseSlug + "/new").btn.btn-block.btn-primary Create section
   .section-body
     .container
       .row
@@ -18,26 +18,28 @@ block content
           .single
             .section-body-title Description
             p.lead #{description}
-            table.table.table-hover.theme-table
-              thead
-                tr
-                  th Sections
-              tbody
-              each value in sections
-                tr
-                  td
-                    a(href="/" + username + "/" + courseId + "/1" ).course-single-section
-                      h3 #{value.title}
-                      p #{value.content}
+            hr
+            if sections.length == 0
+              .alert.alert-success Course&nbsp;
+                em #{name}&nbsp;
+                | has been created. Create your first section by clicking&nbsp;
+                a(href="/" + username + "/" + courseSlug + "/new") here
+                | .
+            else
+              table.table.table-hover.theme-table
+                thead
+                  tr
+                    th Sections
+                tbody
+                each singleSection in sections
+                  tr
+                    td
+                      a(href="/" + username + "/" + courseSlug + "/" + singleSection.slug ).course-single-section
+                        h3 #{singleSection.title}
+                        p #{singleSection.content}
 
         .col-md-3
           .panel.panel-default
             .panel-heading.text-center
               .panel-title #{username}
-            .panel-body User intro #{username} is an ipsum dolor sit amet, consectetur
-              | adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          .panel.panel-default
-            .panel-body
-              a(href="#").share-wrapper
-                i.fa.fa-share
-                | &nbsp;Share
+            .panel-body #{bio}
