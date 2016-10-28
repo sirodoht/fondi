@@ -11,35 +11,40 @@ block content
   .container
     .row
       if authed
-        .col-md-9
-          h3 My Courses
-          hr
-          .row
-            each course in courses
-              .col-md-6
-                .course-summary
-                  a(href="/" + username + "/" + course.order).course-summary-icon
-                    i.fa.fa-book(aria-hidden="true")
-                  .course-summary-body
-                    h3.course-summary-body-title
-                      a(href="/" + username + "/" + course.order) #{course.name}
-                    p #{course.description}
+        if courses.length == 0
+          .col-md-9
+            p.lead You have no courses yet. Why don't you create one?
+            a(href="/new").btn.btn-primary.btn-lg Create course
+        else
+          .col-md-9
+            h3 My Courses
+            hr
+            .row
+              each course in courses
+                .col-md-6
+                  .course-summary
+                    a(href="/" + username + "/" + course.slug).course-summary-icon
+                      i.fa.fa-book(aria-hidden="true")
+                    .course-summary-body
+                      h3.course-summary-body-title
+                        a(href="/" + username + "/" + course.slug) #{course.name}
+                      p #{course.description}
 
         .col-md-3
           .panel.panel-default
             .panel-heading.text-center
               .panel-title #{username}
             .panel-body #{bio}
-      .col-md-9
+      .col-md-12
         h3 Discover Courses
         hr
         .row
           each course in publicCourses
-            .col-md-6
+            .col-md-4
               .course-summary
-                a(href="/" + username + "/" + course.order).course-summary-icon
+                a(href="/" + username + "/" + course.slug).course-summary-icon
                   i.fa.fa-book(aria-hidden="true")
                 .course-summary-body
                   h3.course-summary-body-title
-                    a(href="/" + username + "/" + course.order) #{course.name}
+                    a(href="/" + username + "/" + course.slug) #{course.name}
                   p #{course.description}
