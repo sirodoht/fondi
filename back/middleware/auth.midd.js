@@ -1,4 +1,4 @@
-var auth = module.exports = {};
+const auth = module.exports = {};
 
 auth.authOnly = function (req, res, next) {
   if (req.isAuthenticated()) {

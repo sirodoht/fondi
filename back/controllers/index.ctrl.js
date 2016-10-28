@@ -1,6 +1,6 @@
-var models = require('../models');
+const models = require('../models');
 
-var indexCtrl = module.exports = {};
+const indexCtrl = module.exports = {};
 
 indexCtrl.getIndex = function (req, res) {
   let user = null;

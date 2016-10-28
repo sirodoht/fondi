@@ -1,6 +1,6 @@
-var models = require('../models');
+const models = require('../models');
 
-var userCtrl = module.exports = {};
+const userCtrl = module.exports = {};
 
 userCtrl.getRegister = function (req, res) {
   res.render('register');

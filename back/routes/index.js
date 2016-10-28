@@ -1,14 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
 
-var indexCtrl = require('../controllers/index.ctrl');
-var userCtrl = require('../controllers/user.ctrl');
-var coursesCtrl = require('../controllers/courses.ctrl');
-var authMidd = require('../middleware/auth.midd');
-
-router.post('/courses', coursesCtrl.create);
-router.post('/courses/:courseId', coursesCtrl.edit);
+const indexCtrl = require('../controllers/index.ctrl');
+const userCtrl = require('../controllers/user.ctrl');
+const coursesCtrl = require('../controllers/courses.ctrl');
+const authMidd = require('../middleware/auth.midd');
 
 router.get('/', indexCtrl.getIndex);
 

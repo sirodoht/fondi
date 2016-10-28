@@ -1,9 +1,9 @@
 /**
  * @fileOverview Event listeners.
  */
-var helpers = module.exports = {};
+const helpers = module.exports = {};
 
-var debug = require('debug')('aspen:server');
+const debug = require('debug')('aspen:server');
 
 /**
  * Event listener for HTTP server "error" event.
@@ -13,7 +13,7 @@ helpers.onError = function (error, port) {
     throw error;
   }
 
-  var bind = typeof port === 'string' ? 'Pipe ' + port
+  const bind = typeof port === 'string' ? 'Pipe ' + port
     : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
@@ -35,8 +35,8 @@ helpers.onError = function (error, port) {
  * Event listener for HTTP server "listening" event.
  */
 helpers.onListening = function (server) {
-  var addr = server.address();
-  var bind = typeof addr === 'string' ? 'pipe ' + addr
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 };

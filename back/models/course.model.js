@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var attributes = {
+  const attributes = {
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
   };

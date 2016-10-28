@@ -6,25 +6,25 @@
  * @file Main application boot file.
  */
 
-var path = require('path');
+const path = require('path');
 
-var express = require('express');
-// var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var SequelizeStore = require('connect-session-sequelize')(session.Store);
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var config = require('config');
+const express = require('express');
+// const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const config = require('config');
 
-var routes = require('./routes/index');
-var listeners = require('./util/listeners');
-var models = require('./models/index');
-var authMidd = require('./middleware/auth.midd');
+const routes = require('./routes/index');
+const listeners = require('./util/listeners');
+const models = require('./models/index');
+const authMidd = require('./middleware/auth.midd');
 
-var app = express();
+const app = express();
 
 app.set('views', path.join(__dirname, '../front/views'));
 app.set('view engine', 'pug');
@@ -107,7 +107,7 @@ app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
@@ -131,7 +131,7 @@ app.use(function (err, req, res) {
   });
 });
 
-var port = config.webserver.port;
+let port = config.webserver.port;
 if (process.env.PORT) {
   port = process.env.PORT;
 }

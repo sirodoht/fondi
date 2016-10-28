@@ -1,6 +1,6 @@
-var models = require('../models');
+const models = require('../models');
 
-var coursesCtrl = module.exports = {};
+const coursesCtrl = module.exports = {};
 
 coursesCtrl.getCreate = function (req, res) {
   res.render('courses/create');
