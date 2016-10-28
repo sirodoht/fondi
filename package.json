@@ -33,7 +33,9 @@
     "pg-hstore": "2.3.2",
     "pug": "2.0.0-beta6",
     "sequelize": "3.24.3",
-    "serve-favicon": "2.3.0"
+    "serve-favicon": "2.3.0",
+    "slug": "0.9.1",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "eslint": "3.8.0",
