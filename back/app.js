@@ -20,7 +20,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const config = require('config');
 
 const routes = require('./routes/index');
-const listeners = require('./util/listeners');
 const models = require('./models/index');
 const authMidd = require('./middleware/auth.midd');
 
@@ -141,8 +140,10 @@ app.set('port', port);
 models.sequelize.sync()
   .then(function () {
     app.listen(port);
-    app.on('error', listeners.onError);
-    app.on('listening', listeners.onListening);
+    app.on('error', function (error) {
+      console.error('App error:', error);
+      process.exit(1);
+    });
     console.log('Server running on http://localhost:' + port + '/');
   });
 
