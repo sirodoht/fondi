@@ -3,4 +3,4 @@ webserver:
   sessionSecret: "these are the words of the secret"
 
 postgres:
-  url: "postgres://postgres:4a6f19b4f8b8e77af55a15195780ab70@dokku-postgres-fondi:5432/fondi"
+  url: "postgres://postgres:6c34988d347c42786d2f670f4052a490@dokku-postgres-fondidb:5432/fondidb"
