@@ -144,7 +144,7 @@ models.sequelize.sync()
       console.error('App error:', error);
       process.exit(1);
     });
-    console.log('Server running on http://localhost:' + port + '/');
+    console.log('Server running on port:' + port);
   });
 
 module.exports = app;
