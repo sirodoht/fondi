@@ -47,10 +47,11 @@ coursesCtrl.create = function (req, res) {
  * @param {object} res The express response object.
  */
 coursesCtrl.getCourse = function (req, res) {
-  let course = null;
-  let user = null;
+  if (req.user) {
+    let course = null;
+    let user = null;
 
-  models.Course.findOne({ where: { slug: req.params.courseSlug } })
+    models.Course.findOne({ where: { slug: req.params.courseSlug } })
     .then(function (resCourse) {
       course = resCourse;
       return models.User.findOne({ where: { id: req.user.id } });
@@ -69,6 +70,30 @@ coursesCtrl.getCourse = function (req, res) {
         sections,
       });
     });
+  } else {
+    let course = null;
+    let user = null;
+
+    models.User.findOne({ where: { username: req.params.username } })
+      .then(function (resUser) {
+        user = resUser;
+        return models.Course.findOne({ where: { slug: req.params.courseSlug } });
+      })
+      .then(function (resCourse) {
+        course = resCourse;
+        return course.getSections({ raw: true });
+      })
+      .then(function (sections) {
+        res.render('courses/single', {
+          username: user.username,
+          bio: user.bio,
+          name: course.name,
+          courseSlug: course.slug,
+          description: course.description,
+          sections,
+        });
+      });
+  }
 };
 
 /**
