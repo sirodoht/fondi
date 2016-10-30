@@ -42,9 +42,9 @@ block content
           each course in publicCourses
             .col-md-4
               .course-summary
-                a(href="/" + username + "/" + course.slug).course-summary-icon
+                a(href="/" + course.username + "/" + course.slug).course-summary-icon
                   i.fa.fa-book(aria-hidden="true")
                 .course-summary-body
                   h3.course-summary-body-title
-                    a(href="/" + username + "/" + course.slug) #{course.name}
+                    a(href="/" + course.username + "/" + course.slug) #{course.name}
                   p #{course.description}
