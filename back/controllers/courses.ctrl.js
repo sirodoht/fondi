@@ -1,11 +1,27 @@
+/**
+ * @file Courses views controller.
+ */
+
 const models = require('../models');
 
 const coursesCtrl = module.exports = {};
 
+/**
+ * Render course create view.
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 coursesCtrl.getCreate = function (req, res) {
   res.render('courses/create');
 };
 
+/**
+ * Create new course with the logged in user as owner.
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 coursesCtrl.create = function (req, res) {
   let newCourse = null;
 
@@ -24,6 +40,12 @@ coursesCtrl.create = function (req, res) {
     });
 };
 
+/**
+ * Render single course view.
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 coursesCtrl.getCourse = function (req, res) {
   let course = null;
 
@@ -43,6 +65,12 @@ coursesCtrl.getCourse = function (req, res) {
     });
 };
 
+/**
+ * Render user courses view.
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 coursesCtrl.getOwnCourses = function (req, res) {
   let user = null;
 
@@ -60,6 +88,12 @@ coursesCtrl.getOwnCourses = function (req, res) {
     });
 };
 
+/**
+ * Render single section view.
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 coursesCtrl.getSection = function (req, res) {
   let currentSection = null;
 
@@ -83,6 +117,12 @@ coursesCtrl.getSection = function (req, res) {
     });
 };
 
+/**
+ * Render new section view.
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 coursesCtrl.getNewSection = function (req, res) {
   res.render('courses/new-section', {
     username: req.user.username,
@@ -90,6 +130,12 @@ coursesCtrl.getNewSection = function (req, res) {
   });
 };
 
+/**
+ * Render new section view.
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 coursesCtrl.sectionNew = function (req, res) {
   const username = req.user.username;
   const sectionData = {

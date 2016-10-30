@@ -1,7 +1,17 @@
+/**
+ * @file Index view controller.
+ */
+
 const models = require('../models');
 
 const indexCtrl = module.exports = {};
 
+/**
+ * Get index view
+ *
+ * @param {Object} req The express request object.
+ * @param {object} res The express response object.
+ */
 indexCtrl.getIndex = function (req, res) {
   let user = null;
   let userCourses = null;

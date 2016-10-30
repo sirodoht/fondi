@@ -1,3 +1,7 @@
+/**
+ * @file Course Sequelize model.
+ */
+
 const slug = require('slug');
 
 module.exports = function (sequelize, DataTypes) {

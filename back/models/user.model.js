@@ -1,3 +1,7 @@
+/**
+ * @file User Sequelize model.
+ */
+
 const Promise = require('bluebird');
 const bcrypt = require('bcrypt');
 
@@ -33,6 +37,11 @@ module.exports = function (sequelize, DataTypes) {
 
   const User = sequelize.define('User', attributes, options);
 
+  /**
+   * Change password value to bcrypt-ed one.
+   * @param {Object} user Current user record.
+   * @return {Promise} A Promise.
+   */
   const hashPasswordHook = function (user) {
     return bcrypt.genSaltAsync(SALT_WORK_FACTOR)
       .then(function (salt) {
