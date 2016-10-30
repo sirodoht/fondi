@@ -5,36 +5,68 @@ const indexCtrl = module.exports = {};
 indexCtrl.getIndex = function (req, res) {
   let user = null;
   let userCourses = null;
+  const allCourses = [];
 
   if (req.user) {
-    models.User.findOne({
-      where: {
-        id: req.user.id,
-      },
-    })
+    models.User.findOne({ where: { id: req.user.id } })
       .then(function (resUser) {
         user = resUser;
         return resUser.getCourses({raw: true});
       })
       .then(function (resCourses) {
         userCourses = resCourses;
-        return models.Course.findAll();
+        return models.User.findAll({
+          where: {
+            id: {
+              $ne: req.user.id,
+            }
+          }
+        });
       })
-      .then(function (resCourse) {
+      .map(function (resUser) {
+        const curUsername = resUser.username;
+        return resUser.getCourses()
+          .then(function (courses) {
+            courses.forEach(function (course) {
+              allCourses.push({
+                name: course.name,
+                slug: course.slug,
+                username: curUsername,
+                description: course.description,
+              });
+            });
+          });
+      })
+      .then(function () {
         res.render('index', {
           username: user.username,
           name: user.name,
           bio: user.bio,
           courses: userCourses,
-          publicCourses: resCourse,
+          publicCourses: allCourses,
         });
       });
   } else {
-    models.Course.findAll()
-      .then(function (courses) {
+    return models.User.findAll()
+      .map(function (resUser) {
+        const curUsername = resUser.username;
+        return resUser.getCourses()
+          .then(function (courses) {
+            courses.forEach(function (course) {
+              allCourses.push({
+                name: course.name,
+                slug: course.slug,
+                username: curUsername,
+                description: course.description,
+              });
+            });
+          });
+      })
+      .then(function () {
         res.render('index', {
-          publicCourses: courses,
+          publicCourses: allCourses,
         });
       });
+
   }
 };
