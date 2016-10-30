@@ -57,7 +57,7 @@ indexCtrl.getIndex = function (req, res) {
         });
       });
   } else {
-    return models.User.findAll()
+    models.User.findAll()
       .map(function (resUser) {
         const curUsername = resUser.username;
         return resUser.getCourses()
