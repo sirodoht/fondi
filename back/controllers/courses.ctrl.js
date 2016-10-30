@@ -48,19 +48,25 @@ coursesCtrl.create = function (req, res) {
  */
 coursesCtrl.getCourse = function (req, res) {
   let course = null;
+  let user = null;
 
   models.Course.findOne({ where: { slug: req.params.courseSlug } })
     .then(function (resCourse) {
       course = resCourse;
-      return resCourse.getSections({ raw: true });
+      return models.User.findOne({ where: { id: req.user.id } });
+    })
+    .then(function (resUser) {
+      user = resUser;
+      return course.getSections({ raw: true });
     })
     .then(function (sections) {
       res.render('courses/single', {
-        username: req.params.username,
+        username: user.username,
+        bio: user.bio,
         name: course.name,
         courseSlug: course.slug,
         description: course.description,
-        sections: sections,
+        sections,
       });
     });
 };
