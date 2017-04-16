@@ -13,5 +13,5 @@ block content
               a(href="/" + username + "/" + courseSlug + "/" + section.slug) #{section.title}
       .col-sm-8.col-sm-offset-2.col-md-8.col-md-offset-2.main
         h1.page-header #{currentSection.title}
-        p #{currentSection.content}
+        .trix-content !{currentSection.content}
       .col-sm-2.col-md-2
