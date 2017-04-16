@@ -33,7 +33,10 @@ block content
         .col-md-3
           .panel.panel-default
             .panel-heading.text-center
-              .panel-title #{username}
+              .panel-title #{username}&nbsp;
+                div(style="font-size: 14px; display: inline-block;") (
+                  a(href="/" + username + "/edit").small Edit
+                  | )
             .panel-body #{bio}
       .col-md-12
         h3 Discover Courses
