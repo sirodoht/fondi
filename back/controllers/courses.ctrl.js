@@ -155,7 +155,7 @@ coursesCtrl.getSection = function (req, res) {
  * @param {object} res The express response object.
  */
 coursesCtrl.getNewSection = function (req, res) {
-  res.render('courses/new-section', {
+  res.render('courses/section-new', {
     username: req.user.username,
     courseSlug: req.params.courseSlug,
   });
@@ -183,6 +183,6 @@ coursesCtrl.sectionNew = function (req, res) {
     })
     .then(function (course) {
       course.addSection(section);
-      res.redirect('/' + username + '/' + req.params.courseSlug);
+      res.end('/' + username + '/' + req.params.courseSlug);
     });
 };
