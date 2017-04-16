@@ -65,9 +65,22 @@
   }
 }
 
-#title-edit {
-  outline: 0;
-  border: 1px solid #fff;
-  line-height: 1.5em;
-  padding-left: 10px;
+.section-header-title-edit {
+  input[type="text"] {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 24px;
+    height: 46px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    &::placeholder {
+      color: #ddd;
+    }
+
+    &:focus {
+      border: 1px solid #fff;
+    }
+  }
 }
