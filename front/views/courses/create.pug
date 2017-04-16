@@ -10,12 +10,12 @@ block content
               h1.text-center Create a new course
             .form-group
               label.col-md-4.control-label(for="name") Name
-              .col-md-4
+              .col-md-5
                 input.form-control.input-md(name="name", required, type="text")
             .form-group
-              label.col-md-4.control-label(for="desc") Byline
-              .col-md-4
-                input.form-control.input-md(name="desc", required, type="text")
+              label.col-md-4.control-label(for="desc") Short description
+              .col-md-5
+                textarea.form-control.input-md(name="desc", required)
             .form-group
               .col-md-4.col-md-offset-4
-                button.btn.btn-block.btn-primary Create
+                button.btn.btn-primary Create
