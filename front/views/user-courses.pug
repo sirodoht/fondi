@@ -10,9 +10,7 @@ block content
         .col-md-3
           .row
             .col-md-6.col-md-offset-5
-              a(href="/new").btn.btn-block.btn-primary
-                i.fa.fa-file-o
-                | &nbsp;Create
+              a(href="/new").btn.btn-block.btn-primary Create
   .section-body
     .container
       .row
@@ -21,8 +19,6 @@ block content
             each course in courses
               .col-md-6
                 .course-summary
-                  a(href="/" + username + "/" + course.slug).course-summary-icon
-                    i.fa.fa-book(aria-hidden="true")
                   .course-summary-body
                     h3.course-summary-body-title
                       a(href="/" + username + "/" + course.slug) #{course.name}
