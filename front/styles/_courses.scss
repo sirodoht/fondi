@@ -9,13 +9,14 @@
 
 .course-summary-body-title {
   margin-top: 0;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 // Course single view (on /:username/:courseId)
 .course-single-section {
   h3 {
-    margin-top: 0;
+    margin-top: 10px;
+    margin-left: 10px;
     color: $text-color;
   }
 
