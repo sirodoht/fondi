@@ -3,11 +3,14 @@ env:
   commonjs: true
   es6: true
   node: true
+parserOptions:
+  sourceType: module
 extends: 'eslint:recommended'
 rules:
   indent:
     - error
     - 2
+    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
@@ -17,5 +20,7 @@ rules:
   semi:
     - error
     - always
+  camelcase:
+    - 2
   no-console:
     - 0
