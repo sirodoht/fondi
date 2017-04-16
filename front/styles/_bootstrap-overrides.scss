@@ -82,7 +82,8 @@
 }
 
 input[type="text"].form-control,
-input[type="password"].form-control {
+input[type="password"].form-control,
+textarea.form-control {
   box-shadow: none;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -90,6 +91,7 @@ input[type="password"].form-control {
   &:focus {
     outline: 0;
     border-color: $brand-primary;
+    box-shadow: none;
   }
 }
 
