@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  .section-header
+    .container
+      .row.vertical-align
+        .col-md-9
+          .section-header-title-edit
+            input#title-edit.form-control(type="text", placeholder="Section title...")
+        .col-md-3.text-right
+          a(href="/" + username + "/" + courseSlug).btn.btn-sm.btn-primary Back
+          a#section-new(href="#" style="margin-left: 20px; padding-left: 30px; padding-right: 30px;").btn.btn-primary Save
+  .section-body
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          trix-editor.trix-content
+
+  script.
+    var username = '#{username}';
+    var courseSlug = '#{courseSlug}';
