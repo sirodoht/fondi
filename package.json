@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "bower install",
-    "start": "npm run sass && node ./back/app.js",
+    "start": "webpack -p && node ./back/app.js",
     "test": "eslint back/",
-    "sass": "node-sass --include-path scss front/styles/boot.scss front/static/css/style.css",
-    "sass-watch": "nodemon -e scss -x \"npm run sass\"",
-    "watch": "nodemon ./back/app.js & npm run sass-watch"
+    "build": "webpack",
+    "watch": "nodemon ./back/app.js & webpack -w"
   },
   "engines": {
     "node": "6.x"
