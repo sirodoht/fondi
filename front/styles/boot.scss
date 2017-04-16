@@ -1,7 +1,7 @@
-@import "bootstrap-overrides-variables";
-@import "local-bootstrap";
-@import "bootstrap-overrides";
+@import "./bootstrap-overrides-variables";
+@import "./local-bootstrap";
+@import "./bootstrap-overrides";
 
-@import "site-wide";
-@import "section";
-@import "courses";
+@import "./site-wide";
+@import "./section";
+@import "./courses";
