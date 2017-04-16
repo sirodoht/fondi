@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-8.col-md-offset-2.section-simple
+        form.form-horizontal(action="/" + username + "/edit", method="POST")
+          fieldset
+            legend
+              h1 Edit profile
+            .form-group
+              label.col-md-4.control-label(for="username") Username
+              .col-md-4
+                input.form-control.input-md(name="username", type="text", value=username)
+            .form-group
+              label.col-md-4.control-label(for="name") Name
+              .col-md-4
+                input.form-control.input-md(name="name", type="text", value=name)
+            .form-group
+              label.col-md-4.control-label(for="bio") Bio
+              .col-md-4
+                input.form-control.input-md(name="bio", type="text", value=bio)
+            .form-group
+              label.col-md-4.control-label(for="email") Email
+              .col-md-4
+                input.form-control.input-md(name="email", type="text", value=email)
+            .form-group
+              label.col-md-4.control-label(for="password") New Password
+              .col-md-4
+                input.form-control.input-md(name="password", type="password")
+            .form-group
+              label.col-md-4.control-label(for="passwordConfirmation") New Password Confirmation
+              .col-md-4
+                input.form-control.input-md(name="passwordConfirmation", type="password")
+            .form-group
+              .col-md-4.col-md-offset-4
+                button#signup.btn.btn-primary Save
