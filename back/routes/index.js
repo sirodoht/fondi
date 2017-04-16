@@ -31,6 +31,8 @@ router.get('/new', [authMidd.authOnly, coursesCtrl.getCreate]);
 router.post('/new', [authMidd.authOnly, coursesCtrl.create]);
 
 router.get('/:username', coursesCtrl.getOwnCourses);
+router.get('/:username/edit', userCtrl.edit);
+router.post('/:username/edit', userCtrl.update);
 
 router.get('/:username/:courseSlug', coursesCtrl.getCourse);
 router.post('/:username/:courseSlug', coursesCtrl.sectionNew);
