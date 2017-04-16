@@ -80,7 +80,7 @@ userCtrl.edit = function (req, res) {
  * @param {object} res The express response object.
  */
 userCtrl.update = function (req, res) {
-  var updateData = {};
+  let updateData = {};
   if (req.body.username) {
     updateData.username = req.body.username;
   }
