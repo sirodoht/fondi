@@ -23,8 +23,6 @@ block content
               each course in courses
                 .col-md-6
                   .course-summary
-                    a(href="/" + username + "/" + course.slug).course-summary-icon
-                      i.fa.fa-book(aria-hidden="true")
                     .course-summary-body
                       h3.course-summary-body-title
                         a(href="/" + username + "/" + course.slug) #{course.name}
@@ -45,8 +43,6 @@ block content
           each course in publicCourses
             .col-md-4
               .course-summary
-                a(href="/" + course.username + "/" + course.slug).course-summary-icon
-                  i.fa.fa-book(aria-hidden="true")
                 .course-summary-body
                   h3.course-summary-body-title
                     a(href="/" + course.username + "/" + course.slug) #{course.name}
